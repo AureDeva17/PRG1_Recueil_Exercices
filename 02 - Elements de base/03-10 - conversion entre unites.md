@@ -15,8 +15,29 @@ Entrez le nombre de metres a convertir (entier > 0) : 1000
 = 3280.84 [ft]
 = 39370.1 [inch]
 ~~~
+~~~cpp
+~~~cpp
+#include <iostream>
+#include <cstdlib>
+using namespace std;
 
+int main() {
+    const double meters_to_miles = 0.000621371;
+    const double meters_to_feet    = 3.28084;
+    const double meters_to_inches  = 39.3701;
 
+    int nb_meters = 0;
+
+    cout << "Entrez le nombre de metres a convertir (entier > 0) : ";
+    cin >> nb_meters;
+
+    cout nb_meters; << "[m]" << endl
+        << "= " << nb_meters * meters_to_miles; << "[miles]" << endl
+        << "= " << nb_meters * meters_to_feet; << "[feet]" << endl
+        << "= " << nb_meters * meters_to_inches; << "[inches]" << endl;
+
+}
+~~~
 
 <details>
 <summary>Solution</summary>

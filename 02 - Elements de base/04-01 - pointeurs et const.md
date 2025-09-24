@@ -20,13 +20,13 @@ int* const ptr_i_2 = &i;
 
 | # | Instruction         | Correcte ? (oui/non) | Explication |  i  |  j  |
 |---| ------------------- | -------------------- | ----------- | ---:| ---:|
-| 1 | `*ptr_i = 15;`      |                      |             |     |     |
-| 2 | `int *ptr_j_1 = &j;`|                      |             |     |     |
-| 3 | `ptr_j = ptr_i;`    |                      |             |     |     |
-| 4 | `*ptr_i_1 = 25;`    |                      |             |     |     |
-| 5 | `*ptr_i_2 = 30;`    |                      |             |     |     |
-| 6 | `ptr_i_1 = &j;`     |                      |             |     |     |
-| 7 | `ptr_i_2 = &j;`     |                      |             |     |     |
+| 1 | `*ptr_i = 15;`      | oui                  |             | 15  | 10  |
+| 2 | `int *ptr_j_1 = &j;`| non                  | * dans la déclaration|||
+| 3 | `ptr_j = ptr_i;`    | oui                  |             | 5   | 10  |
+| 4 | `*ptr_i_1 = 25;`    | non                  | constante   |     |     |
+| 5 | `*ptr_i_2 = 30;`    | oui                  |             | 30  | 10  |
+| 6 | `ptr_i_1 = &j;`     | oui                  |             |     |     |
+| 7 | `ptr_i_2 = &j;`     | non                  | pointeur const|   |     |
 
 
 

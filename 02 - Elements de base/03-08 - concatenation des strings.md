@@ -5,43 +5,43 @@ Indiquer la valeur de la variable `s` après chacune des séquences d'instructio
 
 1.
 ~~~cpp
-string s = string("A") + "BC";
+string s = string("A") + "BC";  //"ABC"
 ~~~
 
 2.
 ~~~cpp
-string s = string("AB") + 'C';
+string s = string("AB") + 'C';  //"ABC"
 ~~~
 
 3.
 ~~~cpp
-string s = "A" + "BC";
+string s = "A" + "BC";          //erreur
 ~~~
 
 4.
 ~~~cpp
-string s = "AB";
-s += 'C';
+string s = "AB";                
+s += 'C';                       //"ABC"
 ~~~
 
 5.
 ~~~cpp
-string s = "AB";
-string ss = s + 5;
+string s = "AB";                
+string ss = s + 5;              //erreur 5 n'est pas ""
 ~~~
     
 6.
 ~~~cpp
-string s = "PRG";
-string s1 = "2023-01-01";
-s += s1[4]; 
-s += s1[6];
+string s = "PRG";               
+string s1 = "2023-01-01";       
+s += s1[4];                     //"PRG3"
+s += s1[6];                     //"PRG-1"
 ~~~
 
 7.
 ~~~cpp
 string s = "PRG";
-s += to_string(1);
+s += to_string(1);              //"PRG1"
 ~~~
 
 <details>

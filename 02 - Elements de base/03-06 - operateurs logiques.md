@@ -8,7 +8,12 @@ Ecrire la condition permettant de tester :
 3.	qu'un seul de nos deux entiers vaut 0
 4.	qu'au moins un de nos deux entiers ne vaut pas 0
 
+Réponses
 
+1. x == 0 && y == 0
+2. x == 0 || y == 0
+3. (x == 0) != (y == 0)
+4. x != 0 || y != 0
 
 
     

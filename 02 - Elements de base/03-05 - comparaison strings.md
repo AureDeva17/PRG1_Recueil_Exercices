@@ -17,11 +17,11 @@ Pour rappel, `' ' < '0' < '9' < 'A' < 'Z' < 'a' < 'z'`
 
 | # | Expréssion | Résultat (true/false) | Explication |
 |---| ---------- | --------------------- | ----------- |
-| 1 | `s1 < s2` | | |
-| 2 | `s1 > s3`  | | |
-| 3 | `s1 < s4`  | | |
-| 4 | `s3 > s5` | | |
-| 5 | `s1 > s6` | | |
+| 1 | `s1 < s2` |true |1<2 |
+| 2 | `s1 > s3`  |true |r>d |
+| 3 | `s1 < s4`  |false |plus long |
+| 4 | `s3 > s5` |true |l>g |
+| 5 | `s1 > s6` |true |P<p |
 
 
 

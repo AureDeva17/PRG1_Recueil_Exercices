@@ -23,6 +23,32 @@ Entrez la hauteur du tronc de cone [cm] : 3
 La contenance de la bouteille est de 0.672301 litre.
 ~~~
 
+~~~cpp
+#include <iostream>
+#include <cstdlib>
+#include <numbers>
+
+using namespace std::numbers;
+using namespace std;
+
+int main(){
+   int r1 = 4;
+   int r2 = 1;
+   int h1 = 12;
+   int h2 = 1;
+   int h_cone = 3;
+
+   cout << "La conetenance de la bouteille est de " << (MATH_PI * pow(r1, 2.0) * h1) + (MATH_PI * pow(r2, 2.0) * h2) + ((pow(r1, 2.0) + pow(r2, 2.0) + r1 * r2)) * h_cone * MATH_PI << "litre.";
+}
+~~~
+
+
+
+
+
+
+
+
 <details>
 <summary>Solution</summary>
 
@@ -57,7 +83,7 @@ int main() {
    // Calculs des divers volumes [cm3] et du volume total [litre]
    const double volume_cylindre_1 = pi * r1 * r1 * h1;
    const double volume_cylindre_2 = pi * r2 * r2 * h2;
-   const double volume_cone       = pi * (r1 * r1 + r1 * r2 + r2 * r2) * h3 / 3.0;
+   const double volume_cone       = pi * (r1 * r1 + r1 * r2 + r2 * r2) * h3 / 3;
 
    const double volume_total = (volume_cylindre_1 + volume_cylindre_2 + volume_cone) * cm3_en_litre;
 

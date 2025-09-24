@@ -3,21 +3,21 @@ Pour chacun des cas ci-dessous, indiquez s'il s'agit d'un identificateur C++ lé
 
 |  #  | Identificateur | Oui / Non | Explication | 
 | --- | -------------- | --------- | ----------- |
-| 1 | `007` | | |
-| 2 | `james_bond_007`  | | |
-| 3 | `james_bond__007`  | | |
-| 4 | `james bond` | | |
-| 5 | `sOs` | | |
-| 6 | `SOS` | | |
-| 7 | `_007` | | |
-| 8 | `__007` | | |
-| 9 | `_007_` | | |
-| 10 | `bond-007` | | |
-| 11 | `tom&jerry` | | |
-| 12 | `int` | | |
-| 13 | `INT` | | |
-| 14 | `André` | | |
-| 15 | `_` | | |
+| 1 | `007` |Non |commence par chiffre |
+| 2 | `james_bond_007`  |oui | |
+| 3 | `james_bond__007`  |oui | |
+| 4 | `james bond` |non |espace |
+| 5 | `sOs` |oui | |
+| 6 | `SOS` |non |tout en maj |
+| 7 | `_007` |oui | |
+| 8 | `__007` |oui | |
+| 9 | `_007_` |oui | |
+| 10 | `bond-007` |non |- |
+| 11 | `tom&jerry` |non |& |
+| 12 | `int` |non |mots réservé |
+| 13 | `INT` |OUI |mais découseillé |
+| 14 | `André` |non |é |
+| 15 | `_` |oui | |
 
 
 
