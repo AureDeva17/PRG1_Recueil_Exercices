@@ -4,6 +4,12 @@ Réécrivez les extraits de code suivants en n'utilisant pas d'opérateur ternai
 
 ~~~cpp 
 a = a >= 1 ? 42 : a * a; 
+
+if (a >= 1){
+    a = 42;
+}   else{
+    a *= a;
+}
 ~~~
 
 <details>

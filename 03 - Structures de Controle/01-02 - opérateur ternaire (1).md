@@ -8,6 +8,8 @@ if (a > 0) {
 } else {
    b -= 2*a; 
 }
+
+b = a > 0 ? b + a : b - 2*3;
 ~~~
 
 <details>
@@ -27,6 +29,8 @@ if (d == 0.) {
 } else {
    r = n/d; 
 }
+
+r = d ? n/d : 1e100;
 ~~~
 
 <details>
@@ -50,6 +54,7 @@ if (a > 0) {
 } else {
    b *= 2;
 }
+b = a ? b + 1 : a ? b * 2 : 0;
 ~~~
 
 <details>

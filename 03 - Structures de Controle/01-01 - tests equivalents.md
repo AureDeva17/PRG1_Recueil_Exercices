@@ -18,6 +18,8 @@ if (prixActuel < 100) {
 }
 ~~~
 
+Non, le plus grand de devient un plus égal 
+
 <details>
 <summary>Solution</summary>
 Non, si prixActuel == 100, la valeur de nouveauPrix diffère. 

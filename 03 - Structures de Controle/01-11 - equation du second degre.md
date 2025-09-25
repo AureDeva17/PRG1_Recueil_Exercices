@@ -16,6 +16,22 @@ int main() {
    cin >> a >> b >> c;
    
    // votre code vient ici.
+   double delta = b - 4 * (a * c);
+   
+   //test the number of solutions
+   if (detla >= 0){
+        if (delta == 0){
+            double result = -b / (2 * a);
+            cout << "S={" << result << "}";
+        }else{
+            double result1 = (-b - squrt(delta)) / (2 * a);
+            double result2 = (-b + squrt(delta)) / (2 * a);
+            
+            cout << "S={" << result1 << " , " << result2 << "}";
+        }
+   } else{
+        cout << "S={}"
+   }
 }
 ~~~
 

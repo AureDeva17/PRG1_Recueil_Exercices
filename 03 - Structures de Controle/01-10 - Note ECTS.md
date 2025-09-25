@@ -35,6 +35,43 @@ Entrez la note UNIGE : 7
 Erreur
 ~~~
 
+~~~cpp
+#include <iostream>
+
+using namespace std;
+
+int main() {
+    
+    cout << "Entrez la note UNIGE : ";
+    double note_UNIGE; cin >> note_UNIGE;
+    
+    if (note_UNIGE <= 6 && note_UNIGE >= 0){
+        char note_ECTS = 'G';
+    
+        if (note_UNIGE >= 5.25){
+            note_ECTS = 'A';
+        } else if (note_UNIGE >= 4.75){
+            note_ECTS = 'B';
+        }else if (note_UNIGE >= 4.50){
+            note_ECTS = 'C';
+        }else if (note_UNIGE >= 4.25){
+            note_ECTS = 'D';
+        }else if (note_UNIGE >= 4.00){
+            note_ECTS = 'E';
+        }else
+            note_ECTS = 'F';
+        }
+        
+        cout << "Votre note est " << note_ECTS
+    }else{
+        cout << "La note doit être contenue entre 0-6.";
+    }
+    
+    return EXIT_SUCESS;
+}
+~~~
+
+
 <details>
 <summary>Solution</summary>
 

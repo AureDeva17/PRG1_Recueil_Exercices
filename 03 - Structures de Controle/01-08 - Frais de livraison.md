@@ -14,8 +14,34 @@ Complétez le programme qui suit pour qu'il détermine et affiche le tarif de li
 using namespace std;
 
 int main() {
+    const double tarife_suisse = 5.0;
+    const double tarife_grisons_tessin_liechtenstein = 7.0;
+    const double world = 10.0;
+
    cout << "Livraison en Suisse ? (O/N) ";
    char reponse1; cin >> reponse1;
+   
+   if (response1 == 'O'){
+        cout << Livraison aux Grisons ou Tessin? (O/N) ;
+        char response2; cin >> response2;
+        
+        if (response2 == 'O'){
+            cout << "Le tarife de livraison est " << tarife_grisons_tessin_liechtenstein;
+        } else {
+            cout << "Le tarife de livraison est " << tarife_suisse;
+        }
+   } else{
+       cout << Livraison au Lichtenstein? (O/N) ;
+       char response2; cin >> response2;
+       
+       if (response2 == 'O'){
+            cout << "Le tarife de livraison est " << tarife_grisons_tessin_liechtenstein;
+       } else{
+            cout << "Le tarife de livraison est " << tarife_world;
+       }
+   }
+   
+   return EXIT_SUCCESS
    
    // votre code vient ici
 }
