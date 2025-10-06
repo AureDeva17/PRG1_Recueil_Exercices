@@ -26,6 +26,8 @@ int main() {
 
 Conseil : essayer de trouver la réponse "à la main", puis vérifier votre réponse en l'exécutant pas à pas dans un debugger.
 
+12N 2N 34 4 DN
+
 <details>
 <summary>Solution</summary>
 

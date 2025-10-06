@@ -39,6 +39,50 @@ Entrez le taux d'interet annuel en % > -2
 Le montant ne sera jamais atteint
 ~~~
 
+~~~cpp
+#include <iostream>
+#include <cstdlib>
+
+using namespace std;
+
+int main() {
+   //demande et reçois le montant initial
+   cout << "Entrez le montant initial > ";
+   double montant_initial = 0; 
+   cin >> montant_initial;
+   
+   //demande et reçois le montant cible
+   cout << endl << "Entrez le montant cible > ";
+   double montant_cible = 0; 
+   cin >> montant_cible;
+
+   //demande et reçois le taux d'intérets annuel
+   cout << endl << "Entrez le taux d'interet annuel en % > ";
+   int taux_annuel = 0; 
+   cin >> taux_annuel;
+
+   //test si le taux est valable
+   if (taux_annuel >= 0 && montant_cible >= montant_initial || taux_annuel <= 0 && montant_cible <= montant_initial){
+      int nombre_annee = 0;
+      double montant_actuel = montant_initial;
+
+      //ajoute le taux une fois par année jusqu'à ce que le montant atteint ou dépasse la cible
+      while (montant_cible > montant_actuel && montant_cible >= montant_initial || montant_cible < montant_actuel && montant_cible <= montant_initial){
+         montant_actuel += montant_actuel * taux_annuel / 100
+         ++nombre_annee;
+      }
+
+      cout << endl << "Le montant cible est atteint apres" << nombre_annee << "an"  << (nombre_annee > 1 ? "s" : "") << ".";
+
+   } else{
+      cout << endl << "Le montant ne sera jamais atteint";
+   }
+
+   return EXIT_SUCCESS;
+
+}
+~~~
+
 <details>
 <summary>Solution</summary>
 

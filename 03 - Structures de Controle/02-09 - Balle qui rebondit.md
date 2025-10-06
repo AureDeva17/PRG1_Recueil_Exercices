@@ -36,6 +36,61 @@ Nombre de rebonds     (n >= 0)         : -2
 Nombre de rebonds     (n >= 0)         : 10
 La hauteur atteinte apres 10 rebonds : 1.15292 [m]
 ~~~
+~~~cpp
+#include <iostream>
+#include <cmath>
+
+using namespace std;
+
+int main(){
+   
+   constexpr double e_rebond_min = 0.;
+   constexpr double e_rebond_max = 1.;             
+   constexpr double hauteur_initial_min = 0.;      // m
+   constexpr int nb_rebond_min = 0;                
+   constexpr double g = 9.81;                      // m/s^2
+   
+   //demande le coefficiant du rebond
+   double e_rebond = 0.;
+   do{
+      cout << "Coefficient de rebond (" << e_rebond_min << "<= coeff < " << e_rebond_max << ") : ";
+      cin >> e_rebond;
+   }
+   while(e_rebond < e_rebond_min || e_rebond >= e_rebond_max);
+
+   //demande la hauteur initiale
+   double hauteur_initial = 0.;
+   do{
+      cout << "Hauteur initiale [m]  (h0 >= " << hauteur_initial_min << ")        : ";
+      cin >> hauteur_initial;
+   }
+   while(hauteur_initial < hauteur_initial_min);
+
+   //demande le nombre de rebonds
+   int nb_rebonds = 0;
+   do{
+      cout << "Nombre de rebonds     (n >= " << nb_rebond_min << ")         : ";
+      cin >> nb_rebonds;
+   }
+   while(nb_rebonds < nb_rebond_min);
+
+   //simulation des rebonds
+   double hauteur = hauteur_initial;
+
+   for (int i = 0; i < nb_rebonds; ++i){
+      double v1 = cmath::sqrt(2 * g * hauteur) * e_rebond;
+      hauteur = pow(v1, 2) / (2 * g);
+   }
+
+   if (!nb_rebond){
+      hauteur = 0;
+   }
+
+   cout << "La hauteur atteinte apres "<< nb_rebonds <<" rebonds : "<< setprecision(hauteur) << " [m]";
+
+   return EXIT_SUCCESS;
+}
+~~~
 
 <details>
 <summary>Solution</summary>

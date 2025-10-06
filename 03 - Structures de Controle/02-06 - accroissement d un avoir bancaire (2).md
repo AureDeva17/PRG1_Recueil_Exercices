@@ -32,6 +32,34 @@ Entrez le nombre d'annees > 1
 Le montant disponible après 1 an est de 1050 CHF
 ~~~
 
+~~~cpp
+#include <iostream>
+
+using namespace std;
+
+int main(){
+   
+   cout << "Entrez le montant initial > ";
+   double montant_initial = 0.;
+   cin >> montant_initial;
+   cout << "Entrez le taux d'interet annuel en % > ";
+   double taux_interet_annuel = 0.;
+   cin >> taux_interet_annuel;
+   cout << "Entrez le nombre d'annees > ";
+   int nb_annee = 0;
+   cin >> nb_annee
+
+   double montant_final = montant_initial;
+
+   for (int i = 0; i < nb_annee; ++i){
+      montant_final += montant_final * taux_interet_annuel / 100;
+   }
+
+   cout << "Le montant disponible après "<< nb_annee <<"ans est de "<< setprecision(montant_final) << "CHF";
+
+   return EXIT_SUCCESS;
+}
+~~~
 
 <details>
 <summary>Solution</summary>

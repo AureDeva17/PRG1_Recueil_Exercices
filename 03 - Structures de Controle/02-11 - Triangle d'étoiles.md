@@ -13,7 +13,7 @@ Hauteur du triangle (h > 0) : -4
 Hauteur du triangle (h > 0) : 0
 Hauteur du triangle (h > 0) : 7
 
-      *      
+123456*890123
      ***     
     *****    
    *******   
@@ -22,6 +22,36 @@ Hauteur du triangle (h > 0) : 7
 *************
 ~~~
 
+~~~cpp
+#include <cstdlib>
+
+int main(){
+
+   constexpr int h_min = 0;
+
+   //ask for height
+   int h = 0;
+   do{
+      cout << "Hauteur du triangle (h < " << h_min << ") : ";
+      cin >> h;
+   }
+   while(h <= 0);
+
+   for (int i = 0; i < h; ++i){
+      for (int j = 0; j < h * 2 + 1; ++j){
+         if (j < h - i || j > h + i){
+            cout << " ";
+         } else{
+            cout << "*";
+         }
+      }
+      cout << endl;
+   }
+
+   return EXIT_SUCCESS;
+}
+
+~~~
 
 <details>
 <summary>Solution</summary>

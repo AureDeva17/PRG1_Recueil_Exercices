@@ -7,6 +7,10 @@
 for (; i < 10; ++i) {
    cout << i << endl;
 }
+
+while (i < 10){
+   cout << i++ << endl;
+}
 ~~~
 
 <details>
@@ -25,6 +29,13 @@ while (i < 10) {
 ~~~cpp 
 for (; i < 10; ++i) {
    cout << i << endl;
+}
+
+if (i < 10){
+   do{
+      cout << i++ << endl;
+   }
+   while(i < 10);
 }
 ~~~
 
@@ -49,6 +60,10 @@ if (i < 10) {
 while (i-- > 10) {
    cout << i << endl;
 }
+
+for (;i-- > 10;) {
+   cout << i << endl;
+}
 ~~~
 
 <details>
@@ -66,6 +81,13 @@ for (; i-- > 10;) {
 ~~~cpp 
 while (i-- > 10) {
    cout << i << endl;
+}
+
+if (i-- > 10) {
+   do{
+      cout << i << endl;
+   }
+   while(i-- > 10);
 }
 ~~~
 
@@ -92,6 +114,12 @@ do {
   cout << i << endl;
   ++i; 
 } while (i < 10);   
+
+cout << i++ << endl;
+
+for (;i < 10; ++i){
+  cout << i << endl;
+} 
 ~~~
 
 <details>
@@ -111,7 +139,14 @@ for (++i; i < 10; ++i) {
 do {
   cout << i << endl;
   ++i; 
-} while (i < 10);   
+} while (i < 10);
+
+cout << i << endl;
+++i;
+while (i < 10) {
+   cout << i << endl;
+   ++i;
+}
 ~~~
 
 <details>

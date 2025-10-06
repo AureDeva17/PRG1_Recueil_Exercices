@@ -8,6 +8,8 @@ if (i < 1) {
 } else {
    b = i > 2;
 }
+
+b = (i < 1) or (i > 2); 
 ~~~
 
 <details>
@@ -28,6 +30,8 @@ if (j == 0) {
       b = true;
    }
 }
+
+b = (j == 0) or !(i / j < k)
 ~~~
 
 <details>
@@ -50,6 +54,8 @@ if (j == 0) {
       b = false;
    }
 }
+
+b = (j != 0) and (i / j < k)
 ~~~
 
 <details>

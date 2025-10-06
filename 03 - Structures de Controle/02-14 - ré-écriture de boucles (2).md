@@ -8,6 +8,14 @@ Attention, dans les exercices qui suivent, votre code doit être valide quelque 
 for (int i = 0; i < n; ++i) {
    cout << i << endl;
 }
+
+{
+   int = 0;
+   while (i < n){
+      cout << i++ << endl;
+   }
+}
+
 ~~~
 
 <details>
@@ -29,6 +37,13 @@ for (int i = 0; i < n; ++i) {
 ~~~cpp 
 for (int i = 0; i < n; ++i) {
    cout << i << endl;
+}
+ 
+if (int i = 0; i<n){
+   do{
+      cout << i++ << endl;
+   }
+   while(i<n);
 }
 ~~~
 
@@ -68,6 +83,11 @@ int i = 0;
 while (i-- > n) {
    cout << i << endl;
 }
+
+int i = 0
+for (; i-- > n;){
+   cout << i << endl;
+}
 ~~~
 
 <details>
@@ -87,6 +107,15 @@ for (; i-- > n;) {
 int i = 0; 
 while (i-- > n) {
    cout << i << endl;
+}
+
+int i = 0;
+
+if (i-- > n){
+   do{
+      cout << i << endl;
+   }
+   while(i-- > n);
 }
 ~~~
 
@@ -113,6 +142,12 @@ do {
   cout << i << endl;
   ++i; 
 } while (i < n);   
+
+int = 0;
+cout << i++ << endl;
+for (; i < n; ++i){
+   cout << i << endl;
+}
 ~~~
 
 <details>
@@ -135,6 +170,12 @@ do {
   cout << i << endl;
   ++i; 
 } while (i < n);   
+
+int i = 0; 
+cout << i++ << endl;
+while (i < n){
+  cout << i++ << endl;
+}
 ~~~
 
 <details>

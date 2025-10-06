@@ -12,6 +12,31 @@ for (int i = 1; i <= 3; ++i) {
 }
 ~~~   
 
+| i = 1  | i <= 3 | cout << endl | ++i  | j = 1  | j <= 4 | cout << * | ++j  |
+|  -  |  -  |  -  |  -  |  -  |  -  |  -  |  -  |
+|  1  |true |     |     |  1  |true |  *  |  2  |
+|     |     |     |     |  2  |true |  *  |  3  |
+|     |     |     |     |  3  |true |  *  |  4  |
+|     |     |     |     |  4  |true |  *  |  5  |
+|     |     | \n  |  2  |  5  |false|     |     |
+|  2  |true |     |     |  1  |true |  *  |  2  |
+|     |     |     |     |  2  |true |  *  |  3  |
+|     |     |     |     |  3  |true |  *  |  4  |
+|     |     |     |     |  4  |true |  *  |  5  |
+|     |     | \n  |  3  |  5  |false|     |     |
+|  3  |true |     |     |  1  |true |  *  |  2  |
+|     |     |     |     |  2  |true |  *  |  3  |
+|     |     |     |     |  3  |true |  *  |  4  |
+|     |     |     |     |  4  |true |  *  |  5  |
+|     |     | \n  |     |  5  |false|     |     |
+|  4  |false|     |     |     |     |     |     |
+
+~~~
+****
+****
+****
+~~~
+
 <details>
 <summary>Solution</summary>
 
@@ -31,7 +56,12 @@ for (int i = 0; i < 4; ++i) {
    cout << endl;
 }
 ~~~   
-
+~~~
+***
+***
+***
+***
+~~~
 <details>
 <summary>Solution</summary>
 
@@ -52,7 +82,12 @@ for (int i = 1; i <= 4; ++i) {
    cout << endl;
 }
 ~~~   
-
+~~~
+*
+**
+***
+****
+~~~
 <details>
 <summary>Solution</summary>
 
@@ -77,7 +112,11 @@ for (int i = 1; i <= 3; ++i) {
    cout << endl;
 }
 ~~~   
-
+~~~
+xoxox
+xoxox
+xoxox
+~~~
 <details>
 <summary>Solution</summary>
 
@@ -100,7 +139,11 @@ for (int i = 1; i <= 3; ++i) {
    cout << endl;
 }
 ~~~
-
+~~~
+oxoxo
+xoxox
+oxoxo
+~~~
 <details>
 <summary>Solution</summary>
 

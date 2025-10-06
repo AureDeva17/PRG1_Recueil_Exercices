@@ -26,6 +26,8 @@ Que va-t-il afficher lorsque l'utilisateur entre comme valeur
 
 ~~~
 0
+
+=> AB
 ~~~
 
 <details>

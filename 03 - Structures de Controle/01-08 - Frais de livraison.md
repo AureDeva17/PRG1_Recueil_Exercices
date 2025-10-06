@@ -15,7 +15,7 @@ using namespace std;
 
 int main() {
     const double tarife_suisse = 5.0;
-    const double tarife_grisons_tessin_liechtenstein = 7.0;
+    const double tarife_grisons_tessin_liechtenstein = 7.0; //faux
     const double world = 10.0;
 
    cout << "Livraison en Suisse ? (O/N) ";

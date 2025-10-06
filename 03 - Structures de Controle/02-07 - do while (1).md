@@ -11,6 +11,8 @@ do {
 } while (i < 10); 
 ~~~
 
+1 2 3 4 5 6 7 8 9
+
 <details>
 <summary>Solution</summary>
 
@@ -28,6 +30,8 @@ do {
    ++i;
 } while (i < 0); 
 ~~~
+
+0 
 
 <details>
 <summary>Solution</summary>
@@ -47,6 +51,8 @@ do {
 } while (i < 10); 
 ~~~
 
+2 3 4 5 6 7 8 9 10
+
 <details>
 <summary>Solution</summary>
 
@@ -63,7 +69,7 @@ do {
    i /= 2;
 } while (i > 0); 
 ~~~
-
+ 20 10 5 2 1
 <details>
 <summary>Solution</summary>
 
@@ -81,6 +87,8 @@ do {
 } while (i < 0); 
 ~~~
 
+20
+
 <details>
 <summary>Solution</summary>
 
@@ -97,6 +105,8 @@ do
    i /= 2;
 while (i < 0); 
 ~~~
+
+NOPE
 
 <details>
 <summary>Solution</summary>
