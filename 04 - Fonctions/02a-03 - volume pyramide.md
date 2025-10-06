@@ -8,6 +8,29 @@ Appliquer la fonction pour calculer le volume des 2 pyramides suivantes :
 
 Afficher les résultats avec un chiffre après la virgule.
 
+~~~cpp
+#include <iostream>
+#include <cstdlib>
+#include <cmath>
+
+// calcul le volume d'une pyramide V = (Aire de la base × Hauteur) / 3
+double vol_pyr(double lo, double la, double h){
+    return lo * la * h / 3;
+}
+
+string display_pyr(double lo, double la, double h){
+    return f"base de longueur {lo} et de largeur {la}; hauteur = {h} donne {vol_pyr(lo, la, h)}";
+}
+
+int main(){
+
+    cout << "1) Pyramide 1 : " << display_pyr(10, 3, 12);
+    cout << "2) Pyramide 2 : " << display_pyr(3.6, 2, 2.7);
+
+    return EXIT_SUCCESS;
+}
+~~~
+
 <details>
 <summary>Solution</summary>
 
