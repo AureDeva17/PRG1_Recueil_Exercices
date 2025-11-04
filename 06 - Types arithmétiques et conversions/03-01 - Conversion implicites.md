@@ -2,7 +2,7 @@
 
 Soient les déclarations suivantes :
 ~~~cpp
-char c = 'A';
+char c = 'A'; //65
 int n = 7;
 int a = -2;
 unsigned b = 1;
@@ -10,11 +10,11 @@ long p = 10;
 float x = 1.25f;
 double z = 5.5;
 
-auto r1 = n + c + p;
-auto r2 = 2 * x + c;
-auto r3 = (char) n + c;
-auto r4 = (float) z + n / 2;
-auto r5 = a + b;
+auto r1 = n + c + p; //c -> int, n + c -> long, int
+auto r2 = 2 * x + c; //2 -> float, c -> float, float
+auto r3 = (char) n + c; //n->char, n->int, c-> int, int
+auto r4 = (float) z + n / 2; //5.5 -> float, n/2-> float
+auto r5 = a + b; //a -> unsigned, uint
 ~~~
 
 Pour chacune des variables `r1` à `r5`, indiquez :

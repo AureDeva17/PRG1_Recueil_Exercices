@@ -30,7 +30,79 @@ Résultat : Admis
 
 Note: utiliser les fonctions de formatage et privilégier l'utilisation des fonctions pour organiser le code.  
 
+~~~cpp
+#include <string>
+#include <iostream>
 
+using namespace std;
+
+int main(){
+
+    string nom;
+    int age;
+    double note_math;
+    double note_prg1;
+    const int note_max = 6;
+
+    do{
+        cout << "Entrez le nom de l'étudiant.e : " << endl;
+        cin >> nom;
+    }
+    while();
+
+    do{
+        cout << "Entrez l'âge de l'étudiant.e : " << endl;
+        cin >> age;
+    }
+    while(!age);
+
+    do{
+        cout << "Entrez la note en mathématiques (max.  "<< note_max << "): " << endl;
+        cin >> note_math;
+    }
+    while(note_math > note_max);
+
+    do{
+        cout << "Entrez la note en PRG1 (max. " << note_max << "): " << endl;
+        cin >> note_prg1;
+    }
+    while(note_prg1 > note_max);
+
+    const int espace_nom = 15;
+    const int espace_age = 4;
+    const int espace_math = 10;
+    const int espace_prg1 = 10;
+    const int espace_admis = 8;
+
+    const double min_admission = 3.8;
+
+    const char espace = ' ';
+    const char bar = '-';
+
+    double moyenne = (note_math + note_prg1) / 2;
+    string status = moyenne >= min_admission ? "Oui" : "Non";
+
+    cout << setfill(espace) << setwidth(espace_nom) << "Nom";
+    cout << setfill(espace) << setwidth(espace_age) << "Age";
+    cout << setfill(espace) << setwidth(espace_math) << "Note Math";
+    cout << setfill(espace) << setwidth(espace_prg1) << "Note PRG1";
+    cout << setfill(espace) << setwidth(espace_admis) << "Admis";
+
+    cout << setfill(bar) << setwidth(espace_nom + espace_age + espace_math + espace_prg1 + espace_admis) << endl;
+
+    cout << setfill(espace) << setwidth(espace_nom) << nom;
+    cout << setfill(espace) << setwidth(espace_age) << age;
+    cout << setfill(espace) << setwidth(espace_math) << setprecision(2) << note_math;
+    cout << setfill(espace) << setwidth(espace_prg1) << setprecision(2) << note_prg1;
+    cout << setfill(espace) << setwidth(espace_admis) << status;
+
+    cout << setfill(bar) << setwidth(espace_nom + espace_age + espace_math + espace_prg1 + espace_admis) << endl;
+
+    cout << "Moyenne : " << moyenne;
+    cout << "Admis : " << status;
+}
+
+~~~
 
 <details>
 <summary>Solution</summary>

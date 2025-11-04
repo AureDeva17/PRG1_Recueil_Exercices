@@ -25,7 +25,7 @@ Qu'affichent les lignes suivantes ? Justifiez votre réponse
 ---
 
 ~~~cpp
-cout << s * d + u;
+cout << s * d + u; //0
 ~~~
 
 <details>
@@ -39,7 +39,7 @@ cout << s * d + u;
 ---
 
 ~~~cpp
-cout << s * u + d;
+cout << s * u + d; //4294967296
 ~~~
 
 <details>
@@ -53,7 +53,7 @@ cout << s * u + d;
 ---
 
 ~~~cpp
-cout << d * u + s;
+cout << d * u + s; //0
 ~~~
 
 <details>
@@ -67,7 +67,7 @@ cout << d * u + s;
 ---
 
 ~~~cpp
-cout << sc * uc + d;
+cout << sc * uc + d; //0
 ~~~
 
 <details>
@@ -81,7 +81,7 @@ cout << sc * uc + d;
 ---
 
 ~~~cpp
-cout << sc * uc + s;
+cout << sc * uc + s; //-2
 ~~~
 
 <details>
@@ -95,7 +95,7 @@ cout << sc * uc + s;
 ---
 
 ~~~cpp
-cout << sc * uc - u;
+cout << sc * uc - u; //4294967294
 ~~~
 
 <details>
@@ -109,7 +109,7 @@ cout << sc * uc - u;
 ---
 
 ~~~cpp
-cout << (s < u);
+cout << (s < u); //false
 ~~~
 
 <details>
@@ -123,7 +123,7 @@ cout << (s < u);
 ---
 
 ~~~cpp
-cout << (s < d);
+cout << (s < d); //true
 ~~~
 
 <details>
@@ -137,7 +137,7 @@ cout << (s < d);
 ---
 
 ~~~cpp
-cout << (-u < d);
+cout << (-u < d); //false
 ~~~
 
 <details>
@@ -151,7 +151,7 @@ cout << (-u < d);
 ---
 
 ~~~cpp
-cout << (-uc < d);
+cout << (-uc < d); //true
 ~~~
 
 <details>
@@ -165,7 +165,7 @@ cout << (-uc < d);
 ---
 
 ~~~cpp
-cout << (-d < u);
+cout << (-d < u); //true
 ~~~
 
 <details>

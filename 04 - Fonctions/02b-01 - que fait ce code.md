@@ -21,6 +21,8 @@ void mystere(int& a, int& b) {
    a = b - a;
 }
 
+//x = 4 y = 3
+//
 ~~~
 
 <details>

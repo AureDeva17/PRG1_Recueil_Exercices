@@ -15,6 +15,10 @@ int main() {
    auto [ prem, der ] = premiere_et_derniere_lettres(s);
    cout << prem << " -> " << der << endl;
 }
+
+pair<char, char> premiere_et_derniere_lettres(const string& str){
+   return {str[0],str[-1]}
+}
 ~~~
 
 <details>

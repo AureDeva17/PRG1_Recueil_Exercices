@@ -28,6 +28,58 @@ votre saisie [0..10] : 9
 votre saisie : 9
 ~~~
 
+~~~cpp
+#include <string>
+#include <iostream>
+#include "header.hpp"
+
+using namespace std;
+
+int saisir(int min, int max, const string& message){
+   int return_int = 0;
+
+   do{
+      cout << message << "[" << min << ".." << max <<"] : ";
+      cin >> return_int;
+   }
+   while(return_int < min || return_int > max);
+
+   return return_int;
+}
+
+void afficher(string message, int value){
+   cout << message << value;
+}
+~~~
+
+~~~cpp
+#ifndef HEADER
+#define HEADER
+
+#include <string>
+
+int saisir(int min, int max, const std::string& message);
+void afficher(const std::string& message, int value);
+
+#endif
+
+~~~
+
+~~~cpp
+#include <iostream>
+#include <string>
+#include <cstdlib>
+#include "header.hpp"
+
+using namespace std;
+
+int main(){
+   afficher("Votre saisie : ", saisir(0, 10));
+
+   return EXIT_SUCCESS;
+}
+~~~
+
 <details>
 <summary>Solution</summary>
 

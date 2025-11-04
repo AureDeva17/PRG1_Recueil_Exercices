@@ -8,6 +8,81 @@ Modifier le programme en C++ de l'exercice 01-02 pour ajouter les fonctionnalit�
 
 Ps. Le code utilisé pour l'écriture ne doit pas changer, comparé à l'exercice 01-02.   
 
+~~~cpp 
+#include <iostream>
+#include <fstream>
+#include <string>
+
+using namespace std;
+
+bool lire_fichier(const string& nom_fichier){
+    ifstream file_stream;
+
+    file_stream.open(nom_fichier);
+
+    if (!file_stream){
+        return false;
+    }
+
+    string out;
+
+    while(getline(nom_fichier, out)){
+        cout << out << endl;
+    }
+
+    file_stream.close();
+
+    return true;
+}
+
+bool ecrire_fichier(const string& nom_fichier){
+    ofstream fichier_out;
+
+    fichier_out.open(nom_fichier, ios::app);
+
+    string line;
+    while(getline(cin, line)){
+        fichier_out << line << endl;
+    }
+
+    fichier_out.close()
+}
+
+int main(){
+
+    string nom_fichier_out;
+
+    do{
+        cout << "Saisir un nom de fichier output : " << endl;
+        getline(cin, nom_fichier_out);
+    }
+    while(nom_fichier_out.empty());
+    lire_fichier(nom_fichier_out);
+
+    string nom_fichier;
+    do{
+        cout << "Saisir un nom de fichier source : " << endl;
+        getline(cin, nom_fichier);
+    }
+    while(nom_fichier.empty());
+
+    auto cin_buf = cin.rdbut();
+
+    ifstream fichier_in;
+    fichier_in.open(nom_fichier.rdbuf());
+
+    cin.rdbuf(fichier_in);
+
+    ecrire_fichier(nom_fichier_out);
+
+    cin.rdbuf(cin_buf);
+    fichier_in.close();
+
+    return EXIT_SUCCESS;
+}
+
+~~~
+
 <details>
 <summary>Solution</summary>
 

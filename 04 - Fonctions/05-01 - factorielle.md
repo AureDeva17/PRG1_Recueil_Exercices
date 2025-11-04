@@ -11,6 +11,16 @@ Ecrire une fonction récursive *facto* qui retourne la valeur de `n!` pour *n* r
 
 [Wikipedia - Factorial](https://en.wikipedia.org/wiki/Factorial)
 
+~~~cpp
+int facto(int i){
+   if (i < 2){
+      return i;
+   }
+
+   return i * facto(i - 1);
+}
+~~~
+
 <details>
 <summary>Solution</summary>
 

@@ -12,6 +12,48 @@ Anniversaire : 30.10.2023
 ~~~
 
 ~~~cpp
+#include "personne.h"
+#include "date.h"
+#include <string>
+#include <iostream>
+
+struct Personne{
+   string nom;
+   string ville;
+   Date date;
+}
+
+void afficher_personne(const Personne& personne){
+   std::cout << "Nom : " << personne.nom << "\nVille : " << personne.ville << "\nDate : " << afficher_date(personne.date);
+}
+
+#include "date.h"
+#include <iostream>
+
+struct Date{
+   int jour;
+   int mois;
+   int annee;
+}
+
+void afficher_date(const Date& date){
+   std::cout << date.jour << '/' << date.mois << '/' << date.annee;
+}
+
+#ifndef DATE_H
+#define DATE_H
+
+struct Date;
+
+#endif
+
+#ifndef PERSONNE_H
+#define PERSONNE_H
+
+struct Personne;
+
+#endif
+
 #include <iostream>
 #include <cstdlib>
 

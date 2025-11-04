@@ -4,11 +4,11 @@ Soient les déclarations suivantes :
 ~~~cpp
 int i = 5, j = 11; 
 
-double x1 = (double) j / i;
-double x2 = double(j / i);
-double x3 = j / i + .5;
-double x4 = (double) j / i + .5;
-double x5 = (int)( j + .5) / i;
+double x1 = (double) j / i; //2.2
+double x2 = double(j / i); //2.0
+double x3 = j / i + .5;     //2.5
+double x4 = (double) j / i + .5;    //2.7
+double x5 = (int)( j + .5) / i;     //2.0
 ~~~
 
 Que valent les variables x1 à x5 ? 

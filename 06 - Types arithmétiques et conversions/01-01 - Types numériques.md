@@ -2,6 +2,14 @@
 
 1. Dressez la liste exhaustive de tous les types entiers signés supportés par C++ 
 
+~~~cpp
+signed char;
+signed short int; signed short; short; short int;
+signed int; int; signed;
+signed long int; signed long; long int; long;
+signed long long int; signed long long; long long int; long long;
+~~~
+
 <details>
 <summary>Solution</summary>
 
@@ -30,6 +38,14 @@ long signed int long;
 </details>
 
 2. Idem pour les entiers non signés 
+
+~~~cpp
+unsigned char;
+unsigned short int; unsigned short; 
+unsigned int; unsigned;
+unsigned long int; unsigned long;
+unsigned long long int; unsigned long long;
+~~~
 
 <details>
 <summary>Solution</summary>

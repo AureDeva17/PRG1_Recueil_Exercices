@@ -10,6 +10,60 @@ Modifier le programme en C++ de l'exercice 01-01 pour faire ce qui suit :
 
 Ps. Ctrl+D et Ctrl+Z simule le EOF pour les systèmes Unix et Windows, respectivement.   
 
+~~~cpp
+#include <iostream>
+#include <fstream>
+#include <string>
+#include <limits>
+
+using namespace std;
+
+
+
+int main(){
+
+    string file_name;
+    std::ofstream file_out;
+    std::ifstream file_in;
+
+    do{
+        cout << "Give a file's name : ";
+        std::getline(cin, file_name);
+        cin.ignore(numeric_limits<streamsize>::max(), '\n');
+
+        file_out.open(file_name, std::iostream::app);
+
+        if (!file_out){
+            cerr << "Error with the file";
+        }
+    }while (!file_out);
+
+    cout << "The file contains : ";
+
+    file_in.open();
+
+    while(!file_in){
+        string out;
+        std::getline(file_in, out);
+        cout << out;
+    }
+
+    file_in.close();
+
+    string line;
+
+    cout << "Write lines : ";
+
+    while(std::getline(cin, line) && !line.empty()){
+        file_out << line << endl;
+    }
+
+    file_out.close();
+
+    return EXIT_SUCCESS;
+}
+~~~
+
 <details>
 <summary>Solution</summary>
 

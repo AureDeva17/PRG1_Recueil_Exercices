@@ -18,16 +18,16 @@ Cercle* ptr = &cercle;
 
 Les instructions sont-elles correctes ?
 
-1. `cout << cercle.rayon;`
-2. `cout << cercle->rayon;`
-3. `cout << *(&cercle).rayon;`
-4. `cercle.centre = origine;`
-5. `ptr.rayon = 2;`
-6. `*ptr.rayon = 2;`
-7. `cercle.centre.x = 2;`
-8. `ptr.centre.x = 2;`
-9. `Coord coord1 = cercle.centre;`
-10. `Coord coord2 = ptr->centre;`
+1. `cout << cercle.rayon;`             oui
+2. `cout << cercle->rayon;`            non
+3. `cout << *(&cercle).rayon;`         non
+4. `cercle.centre = origine;`          non
+5. `ptr.rayon = 2;`                    non
+6. `*ptr.rayon = 2;`                   oui
+7. `cercle.centre.x = 2;`              oui
+8. `ptr.centre.x = 2;`                 non
+9. `Coord coord1 = cercle.centre;`     oui
+10. `Coord coord2 = ptr->centre;`      oui
 
 <details>
 <summary>Solutions</summary>

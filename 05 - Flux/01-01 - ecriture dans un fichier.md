@@ -12,6 +12,45 @@ Ps : simlulation du *EOF* (End of File)<br>
 - Ctrl+D et Ctrl+Z sur Unix et Windows, respectivement.<br>
 - Cmd+D sur Mac
 
+~~~cpp
+#include <iostream>
+#include <fstream>
+#include <string>
+#include <limits>
+
+using namespace std;
+
+int main(){
+
+    string file_name;
+    std::ofstream file_out;
+
+    do{
+        cout << "Give a file's name : ";
+        cin >> file_name;
+        cin.ignore(numeric_limits<streamsize>::max(), '\n');
+
+        file_out.open(file_name, std::iostream::app);
+
+        if (!file_out){
+            cerr << "Error with the file";
+        }
+    }while (!file_out);
+
+    string line;
+
+    cout << "Write lines : ";
+
+    while(std::getline(cin, line) and not line.empty()){
+        file_out << line << endl;
+    }
+
+    file_out.close();
+
+    return EXIT_SUCCESS;
+}
+~~~
+
 <details>
 <summary>Solution</summary>
 

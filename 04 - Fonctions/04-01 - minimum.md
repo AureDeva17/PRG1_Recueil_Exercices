@@ -11,6 +11,10 @@ int c = 9;
 cout << min(a, b, c);
 min(a, b, c) = 1;
 int& d = min(a, b, c);
+
+int& min(a, b, c){
+   return a < b ? (a < c ? a : c) : (b < c ? b : c); 
+}
 ~~~
 
 **NB** ne pas utiliser de `if`

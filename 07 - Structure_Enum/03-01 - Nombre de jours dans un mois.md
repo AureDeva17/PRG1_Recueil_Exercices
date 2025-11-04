@@ -12,6 +12,28 @@ struct Date {
    Mois  mois;
    Annee annee;
 };
+
+bool est_bissextile(Annee annee){
+   return !(annee % 400) || !(annee % 4) && annee % 100
+}
+
+int jour_dans_mois(Mois mois, Annee annee){
+   if (mois == 2){
+      if (est_bissextile(annee)){
+         return 29;
+      }else{
+         return 28;
+      }
+   }
+   else{
+      if (mois % 2){
+         return 30;
+      }
+      else{
+         return 31;
+      }
+   }
+}
 ~~~
 
 

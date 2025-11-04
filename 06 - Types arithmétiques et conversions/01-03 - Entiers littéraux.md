@@ -10,6 +10,8 @@ On suppose que le compilateur utilise le modèle de donnée LLP64, i.e, avec `in
 
 ~~~
   auto v1 = 12u;        cout << v1 << endl;
+
+  oui unsigned int 12
 ~~~
 <details>
 <summary>Solution</summary>
@@ -21,6 +23,8 @@ unsigned int v1 = 12;
   
 ~~~
   auto v2 = 1L;         cout << v2 << endl;
+
+  oui long int 1
 ~~~
 <details>
 <summary>Solution</summary>
@@ -32,6 +36,8 @@ long int v2 = 1;
 
 ~~~  
   auto v3 = 100'000'000'000; cout << v3 << endl;
+
+  oui long long 100000000000
 ~~~
 <details>
 <summary>Solution</summary>
@@ -46,6 +52,8 @@ long long v3 = 100'000'000'000;
 
 ~~~  
   auto v4 = 0x33;      cout << v4 << endl;
+
+  oui int
 ~~~
 <details>
 <summary>Solution</summary>
@@ -57,6 +65,7 @@ int v4 = 51; // 33 en hexadécimal : 3 * 16 + 3 * 1
 
 ~~~  
   auto v5 = 0xefg;     cout << v5 << endl;
+  non, g
 ~~~
 <details>
 <summary>Solution</summary>
@@ -65,6 +74,8 @@ Ne compile pas. `g` n'est pas un chiffre hexadécimal
 
 ~~~  
   auto v6 = 0xef;      cout << v6 << endl;
+
+  oui int
 ~~~
 
 <details>
@@ -77,6 +88,8 @@ int v6 = 239; // ef en hexadécimal : 14 * 16 + 15
 
 ~~~  
   auto v7 = 0xEF;      cout << v7 << endl;
+
+  oui int
 ~~~
 
 <details>
@@ -89,6 +102,8 @@ int v7 = 239; // EF en hexadécimal : 14 * 16 + 15
 
 ~~~  
   auto v8 = 08;        cout << v8 << endl;
+
+  non, 8 octal
 ~~~
 
 <details>
@@ -98,6 +113,8 @@ Ne compile pas. `8` n'est pas un chiffre octal
 
 ~~~  
   auto v9 = 027;       cout << v9 << endl;
+
+  oui int
 ~~~
 
 <details>
@@ -110,6 +127,8 @@ int v9= 23; // 027 en octal : 2*8+7
 
 ~~~  
   auto v10 = 0xffull;       cout << v10 << endl;
+
+  oui unsigned long long
 ~~~
 
 <details>
@@ -123,6 +142,8 @@ unsigned long long v10 = 255; // ff en hexadécimal : 15*16+15
 
 ~~~  
   auto v11 = 0xffffffff;       cout << v11 << endl;
+
+  oui unsigned int
 ~~~
 
 <details>
@@ -135,6 +156,8 @@ unsigned int v11 = 4294967295; // 2^32-1, valeur qui n'est pas représentable en
 
 ~~~  
   auto v12 = 0x7fffffff;       cout << v12 << endl;
+
+  signed int
 ~~~
 
 <details>
@@ -147,6 +170,8 @@ int v12 = 2147483647; // 2^31-1, le plus grand int représentable
 
 ~~~
    auto v13 = 0b010101; cout << v13;
+
+   int
 ~~~
 <details>
 <summary>Solution</summary>
@@ -158,6 +183,8 @@ int v13 = 21; // 010101 en binaire : 0*32 + 1*16 + 0*8 + 1*4 + 0*2 + 1*1
 
 ~~~
    auto v14 = 0b101ul; cout << v14;
+
+   unsigned long
 ~~~
 
 <details>

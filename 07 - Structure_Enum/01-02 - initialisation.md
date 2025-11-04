@@ -10,19 +10,23 @@ struct Cercle {
    int   rayon;
    Coord centre;
 };
+
+Coord point = {}
+int a = {};
+
 ~~~
 
 Que valent les déclarations proposées ?
 
-1. `Cercle cercle = {1, {2, 3, 4}};`
-2. `Cercle cercle = {1};`
-3. `Cercle cercle = {};`
-4. `Cercle cercle = {1, {2, 3}};`
-5. `Cercle cercle = {1, 2, 3, 4};`
-6. `Coord  coord  = {x=1, y=2, z=3};`
-7. `Coord  coord  = {.x=1, .y=2, .z=3};`
-8. `Coord  coord  = {.x=1,       .z=3};`
-9. `Coord  coord;`
+1. `Cercle cercle = {1, {2, 3, 4}};` 1 2 3 4
+2. `Cercle cercle = {1};`            1 0 0 0
+3. `Cercle cercle = {};`             0 0 0 0
+4. `Cercle cercle = {1, {2, 3}};`    1 2 3 0
+5. `Cercle cercle = {1, 2, 3, 4};`   1 2 3 4
+6. `Coord  coord  = {x=1, y=2, z=3};` nope 0 1 2 3
+7. `Coord  coord  = {.x=1, .y=2, .z=3};`  0 1 2 3
+8. `Coord  coord  = {.x=1,       .z=3};` nope 0 1 0 3
+9. `Coord  coord;`               
 
 <details>
 <summary>Solutions</summary>

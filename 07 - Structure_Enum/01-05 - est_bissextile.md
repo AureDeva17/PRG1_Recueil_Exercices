@@ -11,6 +11,10 @@ struct Date {
    uint8_t  mois;
    uint16_t annee;
 };
+
+bool est_bissextile(const Date& date){
+   return !(date.annee % 400) || !(date.annee % 4) && date.annee % 100
+}
 ~~~
 
 

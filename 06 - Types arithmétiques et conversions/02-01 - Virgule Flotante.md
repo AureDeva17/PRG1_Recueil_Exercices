@@ -16,6 +16,10 @@ Entrez un nombre réel : 2023.09
 2023.09 = 1.97567 * 2^10
 ~~~
 
+~~~cpp
+
+~~~
+
 <details>
 <summary>Solution</summary>
 

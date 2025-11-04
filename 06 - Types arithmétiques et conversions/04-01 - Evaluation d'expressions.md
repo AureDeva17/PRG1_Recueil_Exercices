@@ -10,14 +10,14 @@ using namespace std;
 
 int main() {
    cout << fixed << setprecision(0);
-   cout << "1) " << 3 * 1000 * 1000 * 1000 << endl;
-   cout << "2) " << 3.0 * 1000 * 1000 * 1000 << endl;
-   cout << "3) " << 100000 * 100000 * 100000.0 << endl;
-   cout << "4) " << 100000.0 * 100000 * 100000 << endl;
-   cout << "5) " << 1E7 + 1.0 << endl;
-   cout << "6) " << 1E7f + 1.f << endl;
-   cout << "7) " << 1E8 + 1.0 << endl;
-   cout << "8) " << 1E8f + 1.f << endl;
+   cout << "1) " << 3 * 1000 * 1000 * 1000 << endl;         //weird negative number
+   cout << "2) " << 3.0 * 1000 * 1000 * 1000 << endl;       //3e9
+   cout << "3) " << 100000 * 100000 * 100000.0 << endl;     //weird number
+   cout << "4) " << 100000.0 * 100000 * 100000 << endl;     //1e15
+   cout << "5) " << 1E7 + 1.0 << endl;                      //10000001
+   cout << "6) " << 1E7f + 1.f << endl;                     //10000001
+   cout << "7) " << 1E8 + 1.0 << endl;                      //100000001
+   cout << "8) " << 1E8f + 1.f << endl;                     //100000000
 }
 ~~~
 

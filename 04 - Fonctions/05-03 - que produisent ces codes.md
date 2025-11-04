@@ -12,6 +12,8 @@ void f1(int n) {
 }
 
 f1(2);
+
+//A2 A1 A0 
 ~~~
 
 <details>
@@ -34,6 +36,8 @@ void f2(int n) {
 }
 
 f2(2);
+
+// A0 A1 A2
 ~~~
 
 <details>
@@ -57,6 +61,8 @@ void f3(int n) {
 }
 
 f3(2);
+
+// A2 A1 A0 B0 B1 B2
 ~~~
 
 <details>
@@ -80,6 +86,8 @@ void f4(int n) {
 }
 
 f4(4);
+
+4 3 2 1 1 1 2 1 1 
 ~~~
 
 <details>
@@ -104,6 +112,8 @@ void f5(int n) {
 }
 
 f5(4);
+
+// 1 2 1 3 1 2 4
 ~~~
 
 <details>
@@ -126,6 +136,8 @@ int f6(int a, int b) {
 }
 
 f6(8, 5);
+
+// (8, 5)(5, 3)(3, 2)(2, 1)(1, 0)
 ~~~
 
 <details>

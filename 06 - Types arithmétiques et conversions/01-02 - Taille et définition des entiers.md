@@ -11,6 +11,10 @@ Ce type est défini à la première ligne du programme via une ligne du type
 
 ~~~cpp
 using type = unsigned long int;
+
+cout << "Taille : " << sizeof(type) << "byte" << (sizeof(type) < 2 ? "" : "s") << " = " << numeric_limits<type>::digits() << "bit" << (numeric_limits<type>::digits < 2 ? "" : "s") << endl;
+cout << "Plage de valeurs : " << numeric_limits<type>::lowest() << " -> " << numeric_limits<type>::max() << endl;
+cout << "Ce type est " << (numeric_limits<type>::is_signed ? "" : "non-") << "signé";
 ~~~
 
 ## Exemples d'exécution

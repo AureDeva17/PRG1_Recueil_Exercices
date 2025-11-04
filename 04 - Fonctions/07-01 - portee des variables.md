@@ -10,30 +10,30 @@ using namespace std;
 int a, b;
 
 //------------------------------------------------------------
-int f(int c) {
+int f(int c) { //1
    int n = 0;
-   a = c;
-   if (n < c) {
-      n = a + b;
+   a = c; //global a = 1
+   if (n < c) { //true 0 < 1
+      n = a + b; //1
    }
-   return n;
+   return n; //1
 }
 
 //------------------------------------------------------------
-int g(int c) {
-   int n = 0;
-   int a = c;
-   if (n < f(c)) {
-      n = a + b;
+int g(int c) { //1
+   int n = 0; //0
+   int a = c; //1
+   if (n < f(c)) { //true 0 < 1
+      n = a + b;     //1 + 0 = 1
    }
-   return n;
+   return n;      //1
 }
 
 //------------------------------------------------------------
 int main() {
    int i = 1;
    int b = g(i);
-   cout << "resultat : " << a + b + i << endl;
+   cout << "resultat : " << a + b + i << endl; // resultat : 3
 
    return EXIT_SUCCESS;
 }

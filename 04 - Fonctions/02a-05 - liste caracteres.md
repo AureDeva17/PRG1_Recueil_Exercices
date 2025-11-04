@@ -12,6 +12,31 @@ Exemples
 
 La fonction retourne un booléen indiquant si des caractères ont été affichés.
 
+~~~cpp
+#include <iostream>
+#include <cstdlib>
+
+bool listerCaracteres(char char1, char char2){
+   if (char1 <= char2){
+      for (char i = char1; i <= char2; ++i){
+         cin >> i;
+      }
+   }else{
+      return false;
+   }
+}
+
+int main(){
+   listerCaracteres('A', 'A');
+   listerCaracteres('A', 'C');
+   listerCaracteres('B', 'A');
+   listerCaracteres('0', '9');
+   listerCaracteres(65, 67);
+
+   return EXIT_SUCCESS;
+}
+~~~
+
 <details>
 <summary>Solution</summary>
 

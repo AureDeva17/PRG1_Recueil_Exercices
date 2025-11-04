@@ -19,6 +19,43 @@ Vérifier le bon fonctionnement de la fonction en appliquant le scénario de tes
 - Deuxième retrait = 300
 - Afficher le montant du retrait effectif et le solde courant du compte
 
+~~~cpp
+#include <cstdlib>
+#include <iostream>
+
+int main(){
+   double solde;
+   do{
+      cout << "Solde initial du compte = ";
+      cin >> solde;
+   }
+   while(solde < 0);
+
+   while(true){
+      double retrait;
+
+      do{
+         cout << "Retrait = ";
+         cin >> retrait;
+      }
+      while(retrait < 0);
+
+      double retrait_effectif;
+
+      if (retrait > solde){
+         solde = 0;
+         retrait_effectif = retrait - solde;
+      }else{
+         solde -= retrait;
+         retrait_effectif = retrait;
+      }
+
+      cout << "Le montant du retrait effectif est de " << retrait_effectif << "franc" << (retrait != 0 ? "s" : "") << "et le solde courant du compte est de " << solde << "franc" << (retrait != 0 ? "s." : ".")
+   }
+}
+
+~~~
+
 <details>
 <summary>Solution</summary>
 

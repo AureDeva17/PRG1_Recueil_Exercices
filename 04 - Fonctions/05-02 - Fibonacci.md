@@ -13,6 +13,19 @@ Ecrire une fonction récursive *fibo* qui retourne la valeur de `Fn` pour `n` re
 
 [Wikipedia - Fibonacci](https://en.wikipedia.org/wiki/Fibonacci_sequence)
 
+~~~cpp
+#include <cstdlib>
+
+int fibo(int n){
+
+   if (n < 2){
+      retrun n;
+   }
+
+   return fibo(n - 1) + fibo(n - 2);
+}
+~~~
+
 <details>
 <summary>Solution</summary>
 

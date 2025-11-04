@@ -3,6 +3,72 @@
 Soit la structure suivante permettant de représenter une date 
 
 ~~~cpp
+#include <sstream>
+
+string to_string(const Date& date){
+   stringstream stream;
+   stream.open();
+   stream << date.jour << '/' << date.mois << '/' << date.annee;
+   string re;
+   getline(stream, re);
+   stream.close();
+   return re;
+}
+
+bool est_bissextile(int annee){
+   return !(annee % 400) || !(annee % 4) && annee % 100
+}
+
+int jour_dans_mois(Date date){
+   if (date.mois == 2){
+      if (est_bissextile(date)){
+         return 29;
+      }else{
+         return 28;
+      }
+   }
+   else{
+      if (date.mois % 2){
+         return 30;
+      }
+      else{
+         return 31;
+      }
+   }
+}
+
+bool est_plus_petit(const Date& d1, const Date& d2){
+   return (d1.annee < d2.annee) || ((d1.annee == d2.annee) && ((d1.mois < d2.mois) || (d1.mois == d2.mois) && (d1.jour < d2.jour)));
+}
+
+bool est_plus_grand(const Date& d1, const Date& d2){
+   return (d1.annee > d2.annee) || ((d1.annee == d2.annee) && ((d1.mois > d2.mois) || (d1.mois == d2.mois) && (d1.jour > d2.jour)));
+}
+
+bool est_egal(const Date& d1, const Date& d2){
+   return (d1.annee == d2.annee) && (d1.mois == d2.mois) && (d1.jour == d2.jour);
+}
+
+long long date_en_jour(const Date& date){
+   long long jour_tot = 0;
+
+   for (int annee = date.annee; annee > 0; --annee){
+      jour_tot += est_bissextile(annee);
+   }
+
+   for (int mois = date.mois; mois > 0; --mois){
+      jour_tot += jour_dans_mois({1, mois, date.annee})
+   }
+
+   jour_tot += date.jour;
+
+   return jour_tot;
+}
+
+int jours_entre(const Date& d1, const Date& d2){
+   return est_plus_grand(d1, d2) ? date_en_jour(d1) - date_en_jour(d2) : date_en_jour(d2) - date_en_jour(d1);
+}
+
 struct Date {
    uint8_t jour;
    uint8_t mois;

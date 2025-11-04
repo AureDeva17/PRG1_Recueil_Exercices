@@ -16,16 +16,16 @@ L’utilisateur saisi dans l’ordre les informations suivantes lorsque le progr
 
 
 
-| Instruction 	                                       |  Buffer           | Commentaire                              |
+| Instruction 	                                         |  Buffer           | Commentaire                              |
 |-------------------------------------------------------|-------------------|------------------------------------------|
 |`cout << "entrer des valeurs : ";`                     |                   |                                          |
 |`while(cin.get() != '\n');`                            |                   |                                          |
 |`cout << endl;`                                        |                   |                                          |
-|`cin  >> a;`                                           |                   |                                          |
-|`cin  >> b;`                                           |                   |                                          |
-|`cin.ignore(numeric_limits<streamsize>::max(), '\n');` |                   |                                          |
-|`cin  >> x;`                                           |                   |                                          |
-|`cin  >> y;`                                           |                   |                                          |
+|`cin  >> a;`                                           |45_23_21.2↩︎       |                                          |
+|`cin  >> b;`                                           |4_1_94_3.94_123↩︎  |                                          |
+|`cin.ignore(numeric_limits<streamsize>::max(), '\n');` |         ︎          |                                          |
+|`cin  >> x;`                                           |7_3.45n↩︎          |                                          |
+|`cin  >> y;`                                           |43a1↩︎             |                                          |
 |`cout << "voulez-vous sauver [o/n] : ";`               |                   |                                          |
 |`cin  >> c;`                                           |                   |                                          |
 |`cout << "sauver : " << c << endl;`                    |                   |                                          |
@@ -50,20 +50,27 @@ int main() {
    double   x, y;
    char     c;
    
+/*
+45_23_21.2↩︎
+4_1_94_3.94_123↩︎
+7_3.45n↩︎
+43a1↩︎
+*/
+
    cout << "entrer des valeurs : ";   
-   while(cin.get() != '\n');
-   cout << endl;
-   cin  >> a;
-   cin  >> b;
-   cin.ignore(numeric_limits<streamsize>::max(), '\n');
-   cin  >> x;
-   cin  >> y;
+   while(cin.get() != '\n');  //empty
+   cout << endl;              
+   cin  >> a;                 //_1_94_3.94_123↩︎
+   cin  >> b;                 //_94_3.94_123↩︎
+   cin.ignore(numeric_limits<streamsize>::max(), '\n'); // empty
+   cin  >> x;                 //_3.45n↩︎
+   cin  >> y;                 //n↩︎
    cout << "voulez-vous sauver [o/n] : ";
-   cin  >> c;
+   cin  >> c;                 //↩︎
    cout << "sauver : " << c << endl;
-   cin  >> a;
-   cin  >> b;
-   cin  >> x;
+   cin  >> a;                 //a1↩︎
+   cin  >> b;                 //a1↩︎
+   cin  >> x;                 //a1↩︎
 
    cout << "presser ENTER pour quitter";
    cin.ignore(numeric_limits<streamsize>::max(), '\n');
