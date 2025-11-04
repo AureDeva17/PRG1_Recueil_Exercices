@@ -133,6 +133,7 @@ oui
 | 9  | correct   | un `struc` peut contenir un autre `struct`                   |
 | 10 | faux      | un `struc` n'est pas constant globalement                    |
 | 11 | correct   | un membre d'un `struc` peut être constant                    |
-| 12 | correct   | mais une variable de ce type doit initialiser la constante c |
+| 12 | correct   | une variable de ce type doit initialiser la constante c : Struct s = {'a'};
+|
 
 </details>

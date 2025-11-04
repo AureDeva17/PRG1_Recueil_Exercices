@@ -57,15 +57,7 @@ double v7 = .5;             // 0.5
 
 double v8 = 5.;             // 5
 
-//  auto v14 = 0x0.2;         pas le bon format hexfloat
 
-double v17 = 0x1.p0;        // 1
-
-float v18 = 0x1.8p+0f;      // 1.5
-
-long double v19 = 0x1.p-2L; // 0.25
-
-double v20 = 0x1.1p+2;      // 4.25
 ~~~
 
 </details>
