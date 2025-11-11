@@ -7,7 +7,7 @@ _Il se peut qu'une séquence provoque une erreur à la compilation ou à l'exéc
 ~~~cpp
 // no 1
 array<int,3> a;
-for(int e : a) cout << e << ' ';
+for(int e : a) cout << e << ' '; // indefindefindef
 ~~~
 <details>
 <summary>Solution</summary>
@@ -17,11 +17,10 @@ Le contenu de a est indéterminé
 ~~~cpp
 // no 2
 array<int,3> a{1,2};
-for(int e : a) cout << e << ' ';
+for(int e : a) cout << e << ' '; //1 2 0
 ~~~
 <details>
 <summary>Solution</summary>
-
 ~~~
 1 2 0 
 ~~~
@@ -30,7 +29,7 @@ for(int e : a) cout << e << ' ';
 ~~~cpp
 // no 3
 array<int,3> a{1,2,3,4};
-for(int e : a) cout << e << ' ';
+for(int e : a) cout << e << ' '; //error
 ~~~
 <details>
 <summary>Solution</summary>
@@ -40,11 +39,10 @@ Erreur à la compilation
 ~~~cpp
 // no 4
 array<int,3> a{};
-for(int e : a) cout << e << ' ';
+for(int e : a) cout << e << ' '; //0 0 0
 ~~~
 <details>
 <summary>Solution</summary>
-
 ~~~
 0 0 0
 ~~~
@@ -53,14 +51,12 @@ for(int e : a) cout << e << ' ';
 ~~~cpp
 // no 5
 array<string,3> a;
-for(const string & e : a) cout << e.size() << ' ';
+for(const string & e : a) cout << e.size() << ' '; // 0 0 0
 ~~~
 <details>
 <summary>Solution</summary>
-
 ~~~
 0 0 0
 ~~~
-
 Le comportement est déterminé. Un array de string est toujours initialisé
 </details>

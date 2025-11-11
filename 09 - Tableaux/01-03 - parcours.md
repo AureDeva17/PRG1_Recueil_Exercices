@@ -8,7 +8,7 @@ _Il se peut qu'une séquence provoque une erreur à l'exécution, aie un comport
 // no 1
 array<int, 5> a{1, 2, 3, 4, 5};
 for(size_t i = 1; i <= 3; ++i)
-   cout << a.at(i) << ' ';
+   cout << a.at(i) << ' '; // 2 3 4
 ~~~
 <details>
 <summary>Solution</summary>
@@ -22,7 +22,7 @@ for(size_t i = 1; i <= 3; ++i)
 // no 2
 array<int, 5> a{1, 2, 3, 4, 5};
 for(size_t i = a.size()-1; i >= 0; --i)
-   cout << a.at(i) << ' ';
+   cout << a.at(i) << ' '; //54321 and nope
 ~~~
 <details>
 <summary>Solution</summary>
@@ -38,7 +38,7 @@ Erreur à l'exécution quand i vaut `size_t(-1) == std::numeric_limits<size_t>::
 // no 3
 array<int, 5> a{1, 2, 3, 4, 5};
 for(size_t i = 0; i < a.size(); ++i)
-   cout << a.at(i) << ' ';
+   cout << a.at(i) << ' '; // 12345
 ~~~
 <details>
 <summary>Solution</summary>
@@ -52,7 +52,7 @@ for(size_t i = 0; i < a.size(); ++i)
 // no 4
 array<int, 5> a{1, 2, 3, 4, 5};
 for(size_t i = 3; i < a.size(); --i)
-   cout << a.at(i) << ' ';
+   cout << a.at(i) << ' '; // 4321
 ~~~
 <details>
 <summary>Solution</summary>
@@ -66,7 +66,7 @@ for(size_t i = 3; i < a.size(); --i)
 // no 5
 array<int, 5> a{1, 2, 3, 4, 5};
 for(size_t i = 3; i > 0; --i)
-   cout << a.at(i) << ' ';
+   cout << a.at(i) << ' '; //432
 ~~~
 <details>
 <summary>Solution</summary>
@@ -80,7 +80,7 @@ for(size_t i = 3; i > 0; --i)
 // no 6
 array<int, 5> a{1, 2, 3, 4, 5};
 for(int i : a)
-   cout << i << ' ';
+   cout << i << ' '; //12345
 ~~~
 <details>
 <summary>Solution</summary>
@@ -96,7 +96,7 @@ array<int, 5> a{1, 2, 3, 4, 5};
 for(int i : a)
    i *= i;
 for(int i : a)
-   cout << i << ' '; 
+   cout << i << ' '; 12345
 ~~~
 <details>
 <summary>Solution</summary>
@@ -112,7 +112,7 @@ array<int, 5> a{1, 2, 3, 4, 5};
 for(int& i : a)
    i *= i;
 for(int i : a)
-   cout << i << ' '; 
+   cout << i << ' '; //1 4 9 16 25
 ~~~
 <details>
 <summary>Solution</summary>
