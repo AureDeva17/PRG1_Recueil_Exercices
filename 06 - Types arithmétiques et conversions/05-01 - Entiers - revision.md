@@ -13,6 +13,12 @@ On suppose que le système utilise le modèle de données LP64.
 | `long long` |  64 |
 | `void*`     |  64 |
 
+~~~cpp
+cout << numeric_limits<short>::max()          << endl; // 32767
+cout << numeric_limits<unsigned short>::max() << endl; // 65535
+cout << numeric_limits<unsigned int>::max()   << endl; // 4294967295
+cout << numeric_limits<long>::max()           << endl; // 9223372036854775807
+~~~
 
 ~~~cpp
 // 1
@@ -75,7 +81,7 @@ cout << sh + 1; 65536
 <details>
 <summary>Solution</summary>
 
-`65535 + 1`
+`65535 + 1 = 65536 `
 
 ⚠️ Ceci étant une expression, le calcul se fait en `int` avec promotion `sh`
 
@@ -103,6 +109,8 @@ cout << -sh;
 <details>
 <summary>Solution</summary>
 
+`-1`
+
 ⚠️ par promotion à cause de l'opérateur unaire `-` le calcul se fait en `int` <br> et l'opérateur `<<` choisi est celui du `int` également
 
 </details>
@@ -116,15 +124,14 @@ cout << --sh;
 <details>
 <summary>Solution</summary>
 
+`65535`
+
 ⚠️ par promotion à cause de l'opérateur de pré-décrémentation `--` le calcul se fait en `int` <br> mais ce même opèrateur returne une référence sur `sh` et l'opérateur choisi `<<` est celui du `unsigned short` également
 
 </details>
 
 ~~~cpp
 // 9
-cout << numeric_limits<long>::max()          << endl; // 9223372036854775807
-cout << numeric_limits<unsigned int>::max()  << endl; // 4294967295
-
 long     int a = 2;
 unsigned int b = 1;
 
@@ -207,7 +214,7 @@ else
 // 13
 string str(3'000'000'000, 'a');
 for (int i = 0; i < str.length(); i++) {
-   cout << str[i];
+   cout << str.at(i);
 }
 ~~~
 

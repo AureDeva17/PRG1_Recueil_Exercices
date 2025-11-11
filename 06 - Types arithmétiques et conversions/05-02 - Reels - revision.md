@@ -11,6 +11,13 @@ On suppose que le système utilise le modèle de données LP64.
 | `long double`|  64 |
 
 ~~~cpp
+cout << numeric_limits<float>::max()   << endl; // 3.40282e+38
+cout << numeric_limits<float>::min()   << endl; // 1.17549e-38
+cout << numeric_limits<double>::max()  << endl; // 1.79769e+308
+cout << numeric_limits<double>::min()  << endl; // 2.22507e-308
+~~~
+
+~~~cpp
 // 1
 cout << round(floor(-9.8) / ceil(-4.9));
 ~~~
@@ -32,7 +39,7 @@ cout << 2 * x / x;
 <summary>Solution</summary>
 
 Priorité des opérateurs de gauche à droite<br>
-`2 * x` => débordement => `*inf*`
+`2 * x` => débordement => `inf`
 
 </details>
 
@@ -95,7 +102,7 @@ cout << setprecision(20) << float (1 / 3.) << endl; // 0.3333333432674407959
 </details>
 
 ~~~cpp
-// 5
+// 6
 float reel = 3.14159e42;
 cout << reel << endl;
 ~~~
@@ -105,17 +112,10 @@ cout << reel << endl;
 
 `inf`
 
-~~~cpp
-cout << numeric_limits<float>::max()   << endl; // 3.40282e+38
-cout << numeric_limits<float>::min()   << endl; // 1.17549e-38
-cout << numeric_limits<double>::max()  << endl; // 1.79769e+308
-cout << numeric_limits<double>::min()  << endl; // 2.22507e-308
-~~~
-
 </details>
 
 ~~~cpp
-// 6
+// 7
 float reel = 1e7 + 1.01;
 cout << fixed << reel << endl;
 ~~~
