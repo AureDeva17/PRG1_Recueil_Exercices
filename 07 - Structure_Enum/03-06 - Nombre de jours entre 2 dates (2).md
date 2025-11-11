@@ -4,6 +4,20 @@ Reprenez votre code de l'exercice [01-06](./01-06%20-%20Nombre%20de%20jours%20en
 et modifiez le pour que les mois utilisent une `enum class` plutôt que le type `uint8_t`.
 
 ~~~cpp
+enum class Mois : uint8_t{
+   janvier = 1,
+   fevrier,
+   mars,
+   avril,
+   mai,
+   join,
+   juillet,
+   aout,
+   septembre,
+   novembre,
+   decembre
+};
+
 struct Date {
    uint8_t jour;
    Mois mois;

@@ -18,8 +18,35 @@ Aide : [GPS coordinates converter](https://www.gps-coordinates.net/gps-coordinat
 Le code ci-après produit le résultat présenté
 
 ~~~cpp
-Coord_DMS Yverdon_DMS = {Dir_NS::N, 46, 46, 42.856,
-                         Dir_EW::E, 6, 38, 27.296};
+enum class Dir_NS : uint8_t{
+   n,
+   s
+}
+
+enum class Dir_EW : uint8_t{
+   e,
+   w
+}
+
+struct DMS{
+   uint8_t dir;
+   int degrees;
+   int minutes;
+   double seconds;
+}
+
+struct Coord_DMS{
+   DMS latitude;
+   DMS longitude;
+}
+
+struct Coord_DD{
+   double latitude;
+   double longitude;
+}
+
+Coord_DMS Yverdon_DMS = {Dir_NS::n, 46, 46, 42.856,
+                         Dir_EW::e, 6, 38, 27.296};
 
 Coord_DD Yverdon_DD = {46.7785711,
                        6.6409158};

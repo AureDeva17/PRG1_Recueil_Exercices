@@ -23,6 +23,56 @@ Ecrire également un petit programme de test (main) permettant de vérifier le b
  "MMMMDCCCLXXXVIII" = 4888
 ~~~
 
+~~~cpp
+#include <string>
+#include <iostream>
+#include <array>
+
+using namespace std;
+
+struct Roman_and_decimal{
+    string_view roman;
+    int decimal;
+}
+
+const array<Roman_and_decimal> roman_and_decimals {
+        {"I", 1},
+        {"II", 2},
+        {"III", 3},
+        {"IV", 4},
+        {"V", 5},
+        {"VI", 6},
+        {"VII", 7},
+        {"VIII", 8},
+        {"IX", 9},
+        {"X", 10},
+        {"L", 50},
+        {"C", 100},
+        {"M", 1000}
+    }
+
+int get_decimal_from_one_roman (const string& str){
+    for (const Roman_and_decimal& roman_and_decimal : roman_and_decimals){
+        if (roman_and_decimal.roman == str){
+            return roman_and_decimal.decimal;
+        }
+    }
+}
+
+int get_decimal_from_roman (const string& str){
+    int sum = 0;
+
+    for (size_t i = 0; i < str.lenght; ++i){
+        if (i != str.lenght -1 && get_decimal_from_one_roman(i) < get_decimal_from_one_roman(i+1)){
+            sum -= get_decimal_from_one_roman(i);
+        }
+        else{
+            sum += get_decimal_from_one_roman(i);
+        }
+    }
+}
+~~~
+
 <details>
 <summary>Solution</summary>
 

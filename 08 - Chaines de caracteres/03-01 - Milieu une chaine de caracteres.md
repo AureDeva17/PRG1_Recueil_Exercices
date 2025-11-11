@@ -7,6 +7,21 @@ Ecrire une fonction C++ qui prend en paramètre une chaîne de caractères str (
 Exemples  
 `milieu("ABC") renvoie "B"; milieu("ABCD") renvoie "BC"`
 
+~~~cpp
+#include <iostream>
+#include <string>
+
+string get_median_char(const string& str){
+
+    if (str.length % 2){
+        return str.substr(str.length/2 - 1, 2);
+    }
+    else{
+        return str.substr(str.length/2, 1);
+    }
+}
+~~~
+
 
 <details>
 <summary>Solution</summary>

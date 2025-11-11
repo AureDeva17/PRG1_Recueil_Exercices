@@ -17,7 +17,7 @@ On suppose que le système utilise le modèle de données LP64.
 ~~~cpp
 // 1
 signed short sh = numeric_limits<short>::max();
-cout << sh;
+cout << sh; max
 ~~~
 
 <details>
@@ -30,7 +30,7 @@ cout << sh;
 ~~~cpp
 // 2
 unsigned short sh = numeric_limits<short>::max();
-cout << sh;
+cout << sh; max
 ~~~
 
 <details>
@@ -43,7 +43,7 @@ cout << sh;
 ~~~cpp
 // 3
 unsigned short sh = numeric_limits<unsigned short>::max();
-cout << sh;
+cout << sh; max
 ~~~
 
 <details>
@@ -56,7 +56,7 @@ cout << sh;
 ~~~cpp
 // 4
 unsigned short sh = numeric_limits<unsigned short>::max() + 1;
-cout << sh;
+cout << sh; 0
 ~~~
 
 <details>
@@ -69,7 +69,7 @@ cout << sh;
 ~~~cpp
 // 5
 unsigned short sh = numeric_limits<unsigned short>::max();
-cout << sh + 1;
+cout << sh + 1; 65536
 ~~~
 
 <details>

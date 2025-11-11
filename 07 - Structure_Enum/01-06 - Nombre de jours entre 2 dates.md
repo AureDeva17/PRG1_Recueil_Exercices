@@ -53,7 +53,7 @@ long long date_en_jour(const Date& date){
    long long jour_tot = 0;
 
    for (int annee = date.annee; annee > 0; --annee){
-      jour_tot += est_bissextile(annee);
+      jour_tot += est_bissextile(annee) ? 366 : 365;
    }
 
    for (int mois = date.mois; mois > 0; --mois){
