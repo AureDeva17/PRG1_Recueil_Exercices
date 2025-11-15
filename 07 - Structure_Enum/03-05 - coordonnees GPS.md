@@ -30,8 +30,8 @@ enum class Dir_EW : uint8_t{
 
 struct DMS{
    uint8_t dir;
-   int degrees;
-   int minutes;
+   short degrees;
+   short minutes;
    double seconds;
 }
 
@@ -50,6 +50,24 @@ Coord_DMS Yverdon_DMS = {Dir_NS::n, 46, 46, 42.856,
 
 Coord_DD Yverdon_DD = {46.7785711,
                        6.6409158};
+
+Coord_DMS dd_to_dms(const Coord_DD& dd){
+   Coord_DMS dms;
+
+   dms.latitude.dir = dd.latitude >= 0;
+   dms.longitude.dir = dd.longitude >= 0;
+
+   dms.latitude.degrees = short(dd.latitude);
+   dms.longtitude.degrees = short(dd.longitude);
+
+   dms.latitude.minutes = (dd.latitude - dms.latitude.degrees) * 60;
+   dms.longtitude.minutes = (dd.longitude - dms.longitude.degrees) * 60;
+
+   dms.latitude.seconds = (dd.latitude - dms.latitude.degrees - dms.latitude.minutes * 100) * 60;
+   dms.longtitude.seconds = (dd.longitude - dms.longitude.degrees - dms.latitude.minutes * 100) * 60;
+
+   return dms;
+} 
 
 afficher_DMS(Yverdon_DMS);
 cout << endl;

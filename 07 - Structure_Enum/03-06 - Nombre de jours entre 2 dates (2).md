@@ -4,6 +4,74 @@ Reprenez votre code de l'exercice [01-06](./01-06%20-%20Nombre%20de%20jours%20en
 et modifiez le pour que les mois utilisent une `enum class` plutôt que le type `uint8_t`.
 
 ~~~cpp
+#include <sstream>
+
+string to_string(const Date& date){
+   stringstream stream;
+   stream.open();
+   stream << date.jour << '/' << date.mois << '/' << date.annee;
+   string re;
+   getline(stream, re);
+   stream.close();
+   return re;
+}
+
+bool est_bissextile(int annee){
+   return !(annee % 400) || !(annee % 4) && annee % 100
+}
+
+int jour_dans_mois(Date date){
+
+   switch (date.mois){
+      case Mois::janvier: [[FALLTRHOUGH]]
+      case Mois::mars: [[FALLTRHOUGH]]
+      case Mois::mai: [[FALLTRHOUGH]]
+      case Mois::juillet: [[FALLTRHOUGH]]
+      case Mois::aout: [[FALLTRHOUGH]]
+      case Mois::octobre: [[FALLTRHOUGH]]
+      case Mois::decembr: return 31;
+
+      case Mois::avril:[[FALLTRHOUGH]]
+      case Mois::join:[[FALLTRHOUGH]]
+      case Mois::septembre:[[FALLTRHOUGH]]
+      case Mois::novembre: return 30;
+
+      case Mois::fevrier: return est_bissextile(date) ? 29 : 28;
+   }
+}
+
+bool est_plus_petit(const Date& d1, const Date& d2){
+   return (d1.annee < d2.annee) || ((d1.annee == d2.annee) && ((d1.mois < d2.mois) || (d1.mois == d2.mois) && (d1.jour < d2.jour)));
+}
+
+bool est_plus_grand(const Date& d1, const Date& d2){
+   return (d1.annee > d2.annee) || ((d1.annee == d2.annee) && ((d1.mois > d2.mois) || (d1.mois == d2.mois) && (d1.jour > d2.jour)));
+}
+
+bool est_egal(const Date& d1, const Date& d2){
+   return (d1.annee == d2.annee) && (d1.mois == d2.mois) && (d1.jour == d2.jour);
+}
+
+long long date_en_jour(const Date& date){
+   long long jour_tot = 0;
+
+   for (int annee = date.annee; annee > 0; --annee){
+      jour_tot += est_bissextile(annee) ? 366 : 365;
+   }
+
+   for (int mois = date.mois; mois > 0; --mois){
+      jour_tot += jour_dans_mois({1, mois, date.annee})
+   }
+
+   jour_tot += date.jour;
+
+   return jour_tot;
+}
+
+int jours_entre(const Date& d1, const Date& d2){
+   return est_plus_grand(d1, d2) ? date_en_jour(d1) - date_en_jour(d2) : date_en_jour(d2) - date_en_jour(d1);
+}
+
 enum class Mois : uint8_t{
    janvier = 1,
    fevrier,
@@ -14,6 +82,7 @@ enum class Mois : uint8_t{
    juillet,
    aout,
    septembre,
+   octobre,
    novembre,
    decembre
 };
@@ -23,6 +92,8 @@ struct Date {
    Mois mois;
    int16_t annee;
 };
+
+
 ~~~
 
 <details>

@@ -11,6 +11,15 @@ struct Coord {
 };
 
 using Point = Coord;
+
+void move(Point& point, Direction dir){
+   switch (dir){
+      case Direction::HAUT: point.y++; break;
+      case Direction::BAS: point.y--; break;
+      case Direction::GAUCHE: point.x--; break;
+      case Direction::Droite: point.x++; break;
+   }
+}
 ~~~
 
 Ecrire une fonction *deplacer* permettant de déplacer un point  d'une unité dans une direction donnée.
