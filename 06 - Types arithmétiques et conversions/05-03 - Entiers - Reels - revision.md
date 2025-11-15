@@ -14,7 +14,7 @@ On suppose que le système utilise le modèle de données LP64.
 
 ~~~cpp
 // 1
-cout << double(1 / 3);
+cout << double(1 / 3); //0
 ~~~
 
 <details>
@@ -28,7 +28,7 @@ cout << double(1 / 3);
 
 ~~~cpp
 // 2
-cout << (double)1 / 3;
+cout << (double)1 / 3;//0.333333
 ~~~
 
 <details>
@@ -42,7 +42,7 @@ cout << (double)1 / 3;
 
 ~~~cpp
 // 3
-int entier = 1e42;
+int entier = 1e42;//big weird number
 cout << entier << endl;
 ~~~
 
@@ -58,7 +58,7 @@ A cause du débordement, la valeur est différente.
 
 ~~~cpp
 // 4
-float reel = 1234567890;
+float reel = 1234567890; //weird
 cout << fixed << reel << endl;
 ~~~
 

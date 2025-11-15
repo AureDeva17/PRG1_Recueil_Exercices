@@ -90,7 +90,7 @@ cout << sh + 1; 65536
 ~~~cpp
 // 6
 unsigned short sh = -1;
-cout << sh;
+cout << sh; //max
 ~~~
 
 <details>
@@ -103,7 +103,7 @@ cout << sh;
 ~~~cpp
 // 7
 unsigned short sh = 1;
-cout << -sh;
+cout << -sh; -1
 ~~~
 
 <details>
@@ -118,7 +118,7 @@ cout << -sh;
 ~~~cpp
 // 8
 unsigned short sh = 0;
-cout << --sh;
+cout << --sh; //max
 ~~~
 
 <details>
@@ -135,7 +135,7 @@ cout << --sh;
 long     int a = 2;
 unsigned int b = 1;
 
-cout << b - a;
+cout << b - a; //long
 ~~~
 
 <details>
@@ -150,7 +150,7 @@ Bien que `b`soit `unsigned`, sa valeur est toujours représentable sur un `long`
 
 ~~~cpp
 // 10
-Convertir à la main 0x32A en Octal
+Convertir à la main 0x32A en Octal //0011 0010 1010 -> 001 100 101 010 -> 1452
 ~~~
 
 <details>
@@ -175,7 +175,7 @@ Convertir à la main 0x32A en Octal
 
 ~~~cpp
 // 11
-cout << "Wallis = " << 2/1 * 2/3 * 4/3 * 4/5 << endl;
+cout << "Wallis = " << 2/1 * 2/3 * 4/3 * 4/5 << endl; //2*0*1*0=0
 ~~~
 
 <details>
@@ -192,7 +192,7 @@ cout << "Wallis = " << 2/1 * 2/3 * 4/3 * 4/5 << endl;
 
 // vérifier s'il y a débordement pour a + b
 int a, b;
-if ( /* votre réponse ici */ )
+if (a >= 0 && b >= 0 && a+b<0 || a < 0 && b < 0 && a+b>0)
    cout << "débordement" << endl;
 else
    cout << "pas de débordement" << endl;

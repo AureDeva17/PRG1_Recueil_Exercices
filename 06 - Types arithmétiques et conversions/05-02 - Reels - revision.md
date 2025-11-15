@@ -19,7 +19,7 @@ cout << numeric_limits<double>::min()  << endl; // 2.22507e-308
 
 ~~~cpp
 // 1
-cout << round(floor(-9.8) / ceil(-4.9));
+cout << round(floor(-9.8) / ceil(-4.9)); //-10/-4=2.5 -> 3
 ~~~
 
 <details>
@@ -32,7 +32,7 @@ cout << round(floor(-9.8) / ceil(-4.9));
 ~~~cpp
 // 2
 double x = numeric_limits<double>::max();
-cout << 2 * x / x;
+cout << 2 * x / x; //inf
 ~~~
 
 <details>
@@ -63,7 +63,7 @@ else
 // 4
 // coder ceci correctement de manière à résoudre ce problème correctement pour des double
 
-if ( /* votre réponse */ )
+if (1/3.>=0.3333333333333333-numeric_limits<double>::epsilon() &&1/3.<=0.3333333333333333+numeric_limits<double>::epsilon())
    cout << "egalité" << endl;
 else
    cout << "pas d'egalité" << endl;
