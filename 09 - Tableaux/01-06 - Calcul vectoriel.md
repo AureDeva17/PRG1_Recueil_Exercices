@@ -15,6 +15,42 @@ using namespace std;
 
 using Vec3d = array<double,3>;
 
+string to_string(Vec3d vec){
+
+   string str("(");
+   for (double d : vec){
+      str += string(double) + ",";   
+   }
+
+   str.erase(str.size()-2)
+   return str.append(")");
+}
+
+Vec3d produit(Vec3d vec, double p){
+   for (size_t i = 0; i < vec.size(); ++i){
+      vec[i] *= p;
+   }
+
+   return vec;
+}
+
+double produit_scalaire(Vec3d a, Vec3d b){
+   double pro_sca = 0.;
+   for (size_t i = 0; i < a.size(); ++i){
+      pro_sca += a[i] * b[i];
+   }
+
+   return pro_sca;
+}
+
+Vec3d produit_vectoriel(Vec3d a, const Vec3d& b){
+   for (size_t i = 0; i < a.size(); ++i){
+      a[i] *= b[i];
+   }
+
+   return a;
+}
+
 int main() {
    Vec3d a{1., 2., 3.};
    Vec3d b{2., 4., 3.};

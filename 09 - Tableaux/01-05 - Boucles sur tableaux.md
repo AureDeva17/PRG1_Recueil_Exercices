@@ -66,7 +66,7 @@ for (auto e: t) cout << e << ' '; // 0 0 0 0 0 0 0 0 0
 // no 5
 array<int, 10> t{1, 2, 3, 4, 5, 4, 3, 2, 1, 0};
 for (int i = 1; i < 10; ++i) { t[i] = t[i] + t[i - 1]; }
-for (auto e: t) cout << e << ' ';
+for (auto e: t) cout << e << ' ';//1 3 6 10 15 19 22 24 25 25
 ~~~
 
 <details>
@@ -81,7 +81,7 @@ for (auto e: t) cout << e << ' ';
 // no 6
 array<int, 10> t{1, 2, 3, 4, 5, 4, 3, 2, 1, 0};
 for (int i = 1; i < 10; i = i + 2) { t[i] = 0; }
-for (auto e: t) cout << e << ' ';
+for (auto e: t) cout << e << ' '; //1 0 3 0 5 0 3 0 1 0
 ~~~
 
 <details>
@@ -96,7 +96,7 @@ for (auto e: t) cout << e << ' ';
 // no 7
 array<int, 10> t{1, 2, 3, 4, 5, 4, 3, 2, 1, 0};
 for (int i = 0; i < 5; ++i) { t[i + 5] = t[i]; }
-for (auto e: t) cout << e << ' ';
+for (auto e: t) cout << e << ' '; //1 2 3 4 5 1 2 3 4 5
 ~~~
 
 <details>
@@ -111,7 +111,7 @@ for (auto e: t) cout << e << ' ';
 // no 8
 array<int, 10> t{1, 2, 3, 4, 5, 4, 3, 2, 1, 0};
 for (int i = 1; i < 5; ++i) { t[i] = t[9 - i]; }
-for (auto e: t) cout << e << ' ';   
+for (auto e: t) cout << e << ' ';   //0 1 2 3 4 4 3 2 1 0
 ~~~
 
 <details>
