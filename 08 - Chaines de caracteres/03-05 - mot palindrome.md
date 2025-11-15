@@ -18,6 +18,53 @@ Entrez un mot (ou 'quitter' pour sortir) : quitter
 Fermeture du programme. Au revoir !
 ~~~
 
+~~~cpp
+#include <string>
+#include <iostream>
+#include <cstdlib>
+#include <cctype>
+
+using namespace std;
+
+bool est_palindrome(const string& str){
+
+    string reversed;
+
+    for (size_t i = str.size() - 1; i < str.size(); --i){
+        reversed.push_back(str[i]);
+    }
+
+
+    return reversed.toupper() == str.toupper();
+}
+
+int main(){
+
+    string answer;
+
+    while(true){
+        cout << "Entrez un mot (ou 'quitter' pour sortir) : "
+        cin << answer;
+
+        if (answer == "quitter"){
+            cout << "Fermeture du programme. Au revoir !";
+        }
+
+
+
+        if (est_palindrome(answer)){
+            cout << "Le mot " << answer << " est un palindrome.";
+        }
+        else{
+            cout << "Le mot " << answer << " n'est pas un palindrome.";
+        }
+
+    }
+
+    return EXIT_SUCCESS;
+}
+~~~
+
 <details>
 <summary>Solution</summary>
 

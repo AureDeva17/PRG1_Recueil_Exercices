@@ -11,6 +11,33 @@ Le no de la rue est  : 24a
 
 **NB** Le cas des noms de rues contenant des chiffres (p. ex. Avenue du 1er Mars) n'est pas à traiter ici. 
 
+~~~cpp
+#include <string>
+#include <string_view>
+#include <iostream>
+#include <cstdlib>
+
+using namespace std;
+
+int main(){
+
+    string line;
+
+    cout << "Entrez le nom et le numero de la rue : ";
+
+    getline(cin, line);
+
+    size_t last_space = line.find_last_of(' ');
+    string_view street(line, 0, last_space + 1);
+    string_view num(line, last_space);
+
+    cout << "Le nom de la rue est : " <<street;
+    cout << "Le no de la rue est  : " <<num;
+
+    return EXIT_SUCCESS;
+}
+~~~
+
 <details>
 <summary>Solution</summary>
 

@@ -17,6 +17,30 @@ Votre nom est      : Dumas
 Votre acronyme est : ADS
 ~~~
 
+~~~cpp
+#include <string>
+#include <iostream>
+#include <cstdlib>
+#include <cctype>
+
+using namespace std;
+
+int main(){
+
+    string prenom;
+    string nom;
+    cout << "Entrez votre prenom et votre nom : ";
+    cin >> prenom;
+    cin >> nom;
+
+    cout << "Votre prénom est : " << prenom;
+    cout << "Votre nom est : " << nom;
+    cout << "Votre acronyme est : " << nom.front() << prenom.front() << toupper(prenom.back());
+
+    return EXIT_SUCCESS;
+}
+~~~
+
 <details>
 <summary>Solution</summary>
 

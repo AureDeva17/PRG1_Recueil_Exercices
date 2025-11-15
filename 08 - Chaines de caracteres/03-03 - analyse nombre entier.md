@@ -14,6 +14,26 @@ Dernier chiffre    : 3
 
 ~~~
 
+~~~cpp
+#incldue <cstdlib>
+#incldue <iostream>
+#incldue <iomanip>
+#incldue <string>
+
+int main(){
+
+    cout << "Veuillez saisir un entier : ";
+    string num;
+    cin >> num;
+
+    cout << "Nombre de chiffres : " << num.size();
+    cout << "Premier chiffre : " << num.front();
+    cout << "Dernier chiffre : " << num.back();
+
+    return EXIT_SUCCESS;
+}
+~~~
+
 <details>
 <summary>Solution</summary>
 

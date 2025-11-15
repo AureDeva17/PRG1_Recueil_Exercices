@@ -10,7 +10,7 @@ _Il se peut qu'une séquence provoque une erreur à la compilation ou à l'exéc
 string s1 = "ABC";
 string s2 = "123";
 s1.insert(1, s2); 
-cout << '|' << s1 << '|' << endl;
+cout << '|' << s1 << '|' << endl; //A123BC
 ~~~
 
 <details>
@@ -25,7 +25,7 @@ cout << '|' << s1 << '|' << endl;
 string s1 = "ABC";
 string s2 = "123";
 s1.insert(4, s2); 
-cout << '|' << s1 << '|' << endl;
+cout << '|' << s1 << '|' << endl; //error
 ~~~
 
 <details>
@@ -41,7 +41,7 @@ Erreur à l'exécution (NB s1.insert(3, s2) serait OK)
 string s1 = "ABC";
 string s2 = "123";
 s1.insert(2, s2, 1, 2); 
-cout << '|' << s1 << '|' << endl;
+cout << '|' << s1 << '|' << endl;//AB23C
 ~~~
 
 <details>
@@ -56,7 +56,7 @@ cout << '|' << s1 << '|' << endl;
 string s1 = "ABC";
 string s2 = "123";
 s1.insert(2, s2, 0, string::npos); 
-cout << '|' << s1 << '|' << endl;
+cout << '|' << s1 << '|' << endl;   //AB123C
 ~~~
 
 <details>
@@ -70,7 +70,7 @@ cout << '|' << s1 << '|' << endl;
 // #5
 string s = "ABC";
 s.insert(3, "123", 2); 
-cout << '|' << s << '|' << endl;
+cout << '|' << s << '|' << endl; // ABC12
 ~~~
 
 <details>
@@ -84,7 +84,7 @@ cout << '|' << s << '|' << endl;
 // #6
 string s = "ABC";
 s.insert(1, 2, '3'); 
-cout << '|' << s << '|' << endl;
+cout << '|' << s << '|' << endl;// A33BC
 ~~~
 
 <details>
@@ -98,7 +98,7 @@ cout << '|' << s << '|' << endl;
 string s1 = "ABCDEF";
 string s2 = "123";
 s1.replace(1, 2, s2); 
-cout << '|' << s1 << '|' << endl;
+cout << '|' << s1 << '|' << endl;//A123DEF
 ~~~
 
 <details>
@@ -113,7 +113,7 @@ cout << '|' << s1 << '|' << endl;
 string s1 = "ABCDEF";
 string s2 = "123";
 s1.replace(2, 4, s2); 
-cout << '|' << s1 << '|' << endl;
+cout << '|' << s1 << '|' << endl;// AB123
 ~~~ 
 
 <details>
@@ -127,7 +127,7 @@ cout << '|' << s1 << '|' << endl;
 string s1 = "ABCDEF";
 string s2 = "123";
 s1.replace(1, 2, s2, 1, 2); 
-cout << '|' << s1 << '|' << endl;
+cout << '|' << s1 << '|' << endl;// A23DEF
 ~~~
 
 <details>
@@ -141,7 +141,7 @@ cout << '|' << s1 << '|' << endl;
 // #10
 string s = "ABCDEF";
 s.replace(2, 3, "123", 2); 
-cout << '|' << s << '|' << endl;
+cout << '|' << s << '|' << endl;//AB12F
 ~~~
 
 <details>
@@ -155,7 +155,7 @@ cout << '|' << s << '|' << endl;
 // #11
 string s = "ABCDEF";
 s.erase(); 
-cout << '|' << s << '|' << endl;
+cout << '|' << s << '|' << endl;//
 ~~~
 
 <details>
@@ -169,7 +169,7 @@ cout << '|' << s << '|' << endl;
 // #12
 string s = "ABCDEF";
 s.erase(2); 
-cout << '|' << s << '|' << endl;
+cout << '|' << s << '|' << endl;//AB
 ~~~
 
 <details>
@@ -183,7 +183,7 @@ cout << '|' << s << '|' << endl;
 // #13
 string s = "ABCDEF";
 s.erase(2, 2); 
-cout << '|' << s << '|' << endl;
+cout << '|' << s << '|' << endl;//ABEF
 ~~~
 
 <details>

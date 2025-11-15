@@ -5,12 +5,22 @@ Le code ci-dessous vous permet de tester votre fonction.
 
 ~~~cpp
 #include <string>
+#include <string_view>
 #include <utility>
 #include <iostream>
 
 using namespace std;
 
 // Ecrivez ici la fonction remplacer_occurences
+string remplacer_occurences(string text, string_view to_replace, string_view replacement){
+   size_t pos = 0;
+   while(pos = text.find(to_replace, pos) != string::npos){
+      text.replace(pos, to_replace.size(), replacement)
+      pos += to_replace.size();
+   }
+
+   return text;
+}
 
 int main() {
    string texte{"Les sanglots longs de violons de l'automne "

@@ -23,6 +23,48 @@ Votre nom est      : Giscard d'Estaing
 Votre acronyme est : VGG
 ~~~
 
+~~~cpp
+#include <string>
+#include <string_view>
+#include <iostream>
+#include <cstdlib>
+#include <cctype>
+
+using namespace std;
+
+string get_acronym(string_view str){
+   
+   string acronym;
+
+   if (!str.size())
+      return str;
+
+   acronym += toupper(str.front());
+
+   size_t pos = 0;
+   while (pos = str.find_first_of(' ', pos) < str.size()){
+      acronym.push_back(toupper(str.at(pos+1)))
+   }
+
+   return acronym;
+}
+
+int main(){
+
+   cout << "Entrez votre prenom et votre nom : "
+   string line;
+   getline(cin, line);
+
+   cout << "Votre prenom est   :" << line.substr(0, line.find_first_of(' '));
+   cout << "Votre nom est      :" << line.substr(line.find_first_of(' '));
+   cout << "Votre acronyme est :" << get_acronym(line);
+
+   return EXIT_SUCCESS;
+}
+
+
+~~~
+
 <details>
 <summary>Solution</summary>
 
