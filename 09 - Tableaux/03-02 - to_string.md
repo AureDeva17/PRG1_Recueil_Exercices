@@ -13,6 +13,20 @@ Sans faire de surcharge, la fonction *to_string* doit pouvoir traiter les tablea
 Que produisent ces appels
 
 ~~~cpp
+string to_string(span<const int> s){
+   string str("[");
+
+   for (size_t i = 0; i<s.size();++i){
+      str += s[i];
+
+      if (i != s.size()-1)
+         str += ", ";
+   }
+
+   return str += "]";
+}
+
+
    cout << to_string(t) << endl;
    cout << to_string(a) << endl;
    cout << to_string(v) << endl;

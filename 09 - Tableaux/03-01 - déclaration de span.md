@@ -8,7 +8,7 @@ _Il se peut qu'une séquence provoque une erreur à la compilation ou à l'exéc
 // no 1
 vector v { 1, 2, 3, 4, 5, 6, 7, 8};
 span s {v.data(), 3};
-for(int e : s) cout << e << ' ';
+for(int e : s) cout << e << ' ';// 1 2 3
 ~~~
 
 <details>
@@ -27,7 +27,7 @@ for(int e : s) cout << e << ' ';
 // no 2
 vector v { 1, 2, 3, 4, 5, 6, 7, 8};
 span s {v.data() + 2, 4};
-for(int e : s) cout << e << ' ';
+for(int e : s) cout << e << ' '; //3456
 ~~~
 <details>
 <summary>Solution</summary>
@@ -44,7 +44,7 @@ for(int e : s) cout << e << ' ';
 // no 3
 vector v { 1, 2, 3, 4, 5, 6, 7, 8};
 span s {v};
-for(int e : s.subspan(3,2)) cout << e << ' ';
+for(int e : s.subspan(3,2)) cout << e << ' ';//45
 ~~~
 <details>
 <summary>Solution</summary>
@@ -61,7 +61,7 @@ for(int e : s.subspan(3,2)) cout << e << ' ';
 // no 4
 array a { 1, 2, 3, 4, 5, 6, 7, 8};
 span s {&a[3],4};
-for(int e : s) cout << e << ' ';
+for(int e : s) cout << e << ' ';//4567
 ~~~
 <details>
 <summary>Solution</summary>
@@ -78,7 +78,7 @@ for(int e : s) cout << e << ' ';
 // no 5
 array a { 1, 2, 3, 4, 5, 6, 7, 8};
 span s {a.data() + 4, 5};
-for(int e : s) cout << e << ' ';
+for(int e : s) cout << e << ' ';//weird
 ~~~
 <details>
 <summary>Solution</summary>
@@ -94,7 +94,7 @@ Comportement indéfini. Le dernier élément du `span` déborde de l'`array` qui
 vector v { 1, 2, 3, 4, 5, 6, 7, 8};
 span s {v.data() + 5, 7};
 for(size_t i = 0; i < s.size(); ++i)
-   cout << s[i] << ' ';
+   cout << s[i] << ' ';  //weird
 ~~~
 <details>
 <summary>Solution</summary>
@@ -111,7 +111,7 @@ Comportement indéfini. Le dernier élément du `span` déborde du `vector` qui 
 vector v { 1, 2, 3, 4, 5, 6, 7, 8};
 span s {v.data() + 5, 7};
 for(size_t i = 0; i < s.size(); ++i)
-   cout << s.at(i) << ' ';
+   cout << s.at(i) << ' ';//error
 ~~~
 <details>
 <summary>Solution</summary> 

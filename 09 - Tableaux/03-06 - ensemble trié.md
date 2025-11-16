@@ -5,6 +5,35 @@ Modifier l'exercice précédent pour que l'ensemble créé ait ses éléments tr
 Le programme suivant 
 
 ~~~cpp
+bool is_in(span<int> s, int value){
+   for (int i : s){
+      if (i == value)
+         return true;
+   }
+
+   return false;
+}
+
+void insert_in_growing_order(vector<int>& v, int value){
+   for (size_t i = 0; i < v.size(); ++i){
+      if (value > v[i])
+         v.insert(i, value);
+   }
+}
+
+vector<int> ensemble(span<const int> s){
+
+   vector<int> v;
+
+   for (int e : s){
+      if (!is_in(v,e)){
+         insert_in_growing_order(v,e)
+      }
+   }
+   
+   return v.sort();
+}
+
 int main() {
    for (vector<int> const& v:
            {vector<int>{ 1, 2, 4, 1, 2, 5, 3, 6, 2, 1},

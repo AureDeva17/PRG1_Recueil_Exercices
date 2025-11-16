@@ -7,6 +7,28 @@ mais sans aucune duplication.
 Le programme suivant 
 
 ~~~cpp
+bool is_in(span<int> s, int value){
+   for (int i : s){
+      if (i == value)
+         return true;
+   }
+
+   return false;
+}
+
+vector<int> ensemble(span<const int> s){
+
+   vector<int> v;
+
+   for (int i : s){
+      if (!is_in(v,i)){
+         v.push_back(i);
+      }
+   }
+   
+   return v;
+}
+
 int main() {
    for (vector<int> const& v:
            {vector<int>{ 1, 2, 4, 1, 2, 5, 3, 6, 2, 1},

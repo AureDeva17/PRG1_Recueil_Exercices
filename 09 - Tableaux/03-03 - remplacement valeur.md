@@ -5,6 +5,27 @@ Ecrire une fonction C++ qui remplace toutes les valeurs paires d'un tableau d'en
 Avec la fonction `to_string` de l'exercice 03-02, le code suivant 
 
 ~~~cpp
+string to_string(span<const int> s){
+   string str("[");
+
+   for (size_t i = 0; i<s.size();++i){
+      str += s[i];
+
+      if (i != s.size()-1)
+         str += ", ";
+   }
+
+   return str += "]";
+}
+
+void remplacer_valeurs_paires(span<int> s, int value){
+   for(int& e : s){
+      if (!(e % 2)){
+         e = value;
+      }
+   }
+}
+
 int main() {
    vector v { 1, 2, 3, 4, 3, 6, 4, 1, 2};
    cout << to_string(v) << " -> ";

@@ -5,6 +5,15 @@ Ecrire une fonction C++ qui renvoie true si les éléments d'un tableau d'entier
 Le programme suivant 
 
 ~~~cpp
+bool est_strictement_croissant(span<const int> s){
+   for (size_t i = 0; i < s.size()-1; ++i){
+      if (s[i] >= s[i+1])
+         return false;
+   }
+
+   return true;
+}
+
 int main() {
    for (vector<int> const& v:
            {vector<int>{1, 2, 3, 4, 6, 9},

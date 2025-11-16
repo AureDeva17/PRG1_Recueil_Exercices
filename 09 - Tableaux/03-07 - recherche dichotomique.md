@@ -13,6 +13,19 @@ tableau d'entiers (`vector`, `array`, `const vector`, `const array`, tableau C, 
 Le programme suivant 
 
 ~~~cpp
+bool recherche(span<const int> s, int val){
+   if (s.empty())
+      return false;
+
+   if (s.size() == 1)
+      return val == s[0];
+
+   if (s.size() % 2)
+      return val <= s[s.size()/2] ? recherche(span<const int> (s, 0, s.size()/2)) : recherche(span<const int> (s, s.size()/2, s.size()/2)); 
+   else
+      return val <= s[s.size()/2] ? recherche(span<const int> (s, 0, s.size()/2 + 1)) : recherche(span<const int> (s, s.size()/2+1, s.size()/2)); 
+}
+
 int main() {
    for (vector<int> const& v:
            {vector<int>{1, 2, 3, 5, 7, 11, 13, 17},
