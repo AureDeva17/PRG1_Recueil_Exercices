@@ -5,6 +5,49 @@ les types `Matrix3x3` et `Vec3` ainsi que les fonctions `produit`,
 `to_string(Vec3)` et `to_string(Matrix3x3)` de sorte que le code suivant 
 
 ~~~cpp
+using VType = int;
+using Vec3 = array<int, 3>
+using Matrix3x3 = array<Vec3, 3>;
+
+string to_string(const Vec3& v){
+   string str("[");
+
+   for (size_t i = 0; i < v.size(); ++i){
+      if (i){
+         str += ", ";
+      }
+      str += v[i];
+   }
+
+   return str += "]";
+}
+
+
+string to_string(const Matrix3x3& m){
+   string str("[");
+
+   for (size_t i = 0; i < m.size(); ++i){
+      if (i){
+         str += '\n';
+      }
+      str += to_string(m[i]);
+   }
+
+   return str += "]";
+}
+
+Vec3 produit (const Matrix3x3& m, const Vec3& v){
+   Vec3 v2 = {};
+
+   for (size_t i = 0; i < v2.size(); ++i){
+      for (size_t j = 0; j < v.size(); ++j){
+         v2[i] += m[i][j] * v[j]
+      }
+   }
+
+   return v2;
+}
+
 int main() {
 
    Matrice3x3 m = {1, 1, 0, 0, 2, 0, 0, 0, 1};

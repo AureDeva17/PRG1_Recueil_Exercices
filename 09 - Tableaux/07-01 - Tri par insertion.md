@@ -8,6 +8,16 @@ Indiquez à part le contenu de la variable tampon
 
 ~~~
 1) 3 2 5 1 4
+32514 2
+33514
+23514 1
+23554
+23154
+23154 4
+23155
+23145 1
+22345
+12345
 ~~~
 
 <details>
@@ -30,6 +40,13 @@ Indiquez à part le contenu de la variable tampon
 
 ~~~
 2) 4 3 2 5 1
+43251 3
+44251
+34251 2
+33451
+23451 1
+22345
+12345
 ~~~
 
 <details>
@@ -54,6 +71,21 @@ Indiquez à part le contenu de la variable tampon
 
 ~~~
 3) 5 4 2 3 1
+54321 4
+55321
+45321 3
+45521
+44521
+34521 2
+34551
+34451
+33451
+23451 1
+23455
+23445
+23345
+22345
+12345
 ~~~
 
 <details>

@@ -7,6 +7,10 @@ les 2 éléments échangés sont le même élément.
 
 ~~~
 1) 3 2 5 1 4
+12534
+12534
+12354
+12345
 ~~~
 
 <details>
@@ -24,6 +28,10 @@ les 2 éléments échangés sont le même élément.
 
 ~~~
 2) 4 3 2 5 1
+13254
+12354
+12354
+12345
 ~~~
 
 <details>
@@ -40,6 +48,10 @@ les 2 éléments échangés sont le même élément.
 
 ~~~
 3) 5 4 2 3 1
+14235
+12435
+12345
+12345
 ~~~
 
 <details>

@@ -3,6 +3,37 @@
 Ecrire un programme C++ qui crée un objet de la classe vector permettant de stocker une matrice (irrégulière) de caractères et de l'afficher. Le programme principal est 
 
 ~~~cpp
+using Matrice = vector<vector<char>>
+
+Matrice creer(){
+   constexpr int nb_letters = 26;
+
+   Matrice m;
+
+   for (int i = 0; i < nb_letters; ++i){
+      vector<char> v;
+
+      for (int i = 0; i < nb_letters; ++i){
+         v.push_back('a' + i)
+      }
+
+      m.push_back(v);
+   }
+
+   return m;
+}
+
+void afficher(const Matrice& m){
+   for (size_t i = 0; i < m.size(); ++i){
+      if (i)
+         cout << endl;
+
+      for (size_t j = 0; j < m[i].size(); ++j){
+         cout << m[i][j];
+      }
+   }
+}
+
 int main() {
    Matrice m = creer();
    afficher(m);

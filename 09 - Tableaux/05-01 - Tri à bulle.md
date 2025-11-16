@@ -6,6 +6,10 @@ Indiquez l'état du tableau après chaque échange.
 
 ~~~
 1) 3 2 5 1 4
+23514
+23145
+21345
+12345
 ~~~
 
 <details>
@@ -24,6 +28,12 @@ Indiquez l'état du tableau après chaque échange.
 
 ~~~
 2) 4 3 2 5 1
+32451
+23451
+2341(5)
+231(45)
+21(345)
+12345
 ~~~
 
 <details>
@@ -43,6 +53,11 @@ Indiquez l'état du tableau après chaque échange.
 
 ~~~
 3) 5 4 2 3 1
+45231
+4231(5)
+231(45)
+21(345)
+12345
 ~~~
 
 <details>
