@@ -15,6 +15,58 @@ nb de notes saisies = 5
 La moyenne des notes saisies = 4.80
 ~~~
 
+~~~cpp
+#include <vector>
+#include <iostream>
+#include <iomanip>
+#include <cstdlib>
+
+using namespace std;
+
+bool is_in(const vector<double>& v, double value){
+   for (int i : v){
+      if (i == value)
+         return true;
+   }
+
+   return false;
+}
+
+double sum(const vector<double>& v){
+   double sum = 0;
+
+   for (double val : v){
+      sum += val;
+   }
+
+   return sum;
+}
+
+int main(){
+
+   constexpr double exit_value = 0d;
+
+   cout << "Entrez la liste de vos notes, 0 pour quitter : ";
+
+   vector<double> marks;
+   double value = 0;
+
+   while(true){
+      cin >> value;
+      if (value != exit_value)
+         marks.push_back(value);
+      else{
+         break;
+      }
+   }
+
+   cout << "nb de notes saisies = " << marks.size();
+   cout << "La moyenne des notes saisies = " << setprecision(2) << sum(marks)/marks.size();
+
+   return EXIT_SUCCESS;
+}
+~~~
+
 <details>
 <summary>Solution</summary>
 

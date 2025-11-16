@@ -5,6 +5,19 @@ Ecrire la fonction *to_string* permettant de traiter un *vector* d'entiers et de
 ~~~cpp
 const vector<int> v = {1, 2, 3, 4, 5, 6};
 cout << to_string(v); // [1, 2, 3, 4, 5, 6]
+
+string to_string(const vector<int>& v){
+   string str("[");
+   for (size_t i = 0; i < v.size(); ++i){
+      str += v[i];
+
+      if (i != v.size() - 1){
+         str += ", ";
+      }
+   }
+
+   return str += "]";
+}
 ~~~
 
 <details>

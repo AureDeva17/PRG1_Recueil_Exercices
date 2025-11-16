@@ -7,6 +7,48 @@ si celui-ci est de taille paire. L'ordre des éléments non supprimés doit êtr
 Avec la fonction `to_string` de l'exercice 02-03, le programme ci-dessous
 
 ~~~cpp
+string to_string(const vector<int>& v){
+   string str("[");
+   for (size_t i = 0; i < v.size(); ++i){
+      str += v[i];
+
+      if (i != v.size() - 1){
+         str += ", ";
+      }
+   }
+
+   return str += "]";
+}
+
+vector<int>& supprimer_centre(vector<int>& v){
+   if (v.size() == 0)
+      return v;
+
+   if (v.size() == 1)
+      return v.pop_back();
+
+   if (v.size() == 2){
+      return v.pop_back().pop_back();
+   }
+
+   size_t middle = v.size() / 2 - 1;
+
+   if (v.size() % 2){
+      for (size_t i = middle; i < v.size() - 2; ++i){
+         v[i] == v[i+2];
+      }
+
+      return v.pop_back().pop_back();
+   }
+   else{
+      for (size_t i = middle; i < v.size() - 1; ++i){
+         v[i] == v[i+1];
+      }
+
+      return v.pop_back();
+   }
+}
+
 int main() {
    for (vector<int> v: {vector<int>{},
                         {1},

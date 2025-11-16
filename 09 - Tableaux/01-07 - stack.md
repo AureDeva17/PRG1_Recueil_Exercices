@@ -11,6 +11,53 @@ Une pile contient
 Le code ci-après doit produire le résulat indiqué
 
 ~~~cpp
+#include <array>
+
+using namespace std;
+using SType = int;
+
+struct Stack{
+   array<SType, 10> data = {};
+   size_t size = 0;
+}
+
+bool full(const Stack& s){
+   return s.size < s.data.size();
+}
+
+bool empty(const Stack& s){
+   return !(s.size);
+}
+
+void push(Stack& s, SType value){
+   s.data.at(s.size++) = value;
+}
+
+SType pop(Stack& s){
+   return s.data.at(--s.size);
+}
+
+SType top(const Stack& s){
+   return s.data.at(s.size-1);
+}
+
+void display(const Stack& s){
+
+   string str;
+
+   for (size_t i = 0; i < s.size; ++i){
+      str.append(s.data[i]);
+      if (i != s.size - 1)
+         str.append(", ");
+   }
+
+   cout << "[" << str << "]"
+}
+
+size_t size(const Stack& s){
+   return s.size;
+}
+
 int main() {
 
    Stack s;

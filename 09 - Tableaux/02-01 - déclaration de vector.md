@@ -7,10 +7,10 @@ _Il se peut qu'une séquence provoque une erreur à la compilation ou à l'exéc
 ~~~cpp
 // no 1
 vector<int> v(2,3);
-for(auto e : v) cout << e << ' '; 
+for(auto e : v) cout << e << ' '; //3 3
 ~~~
 <details>
-<summary>Solution</summary>
+<summary>Solution</summary> 
 
 ~~~
 3 3 
@@ -21,10 +21,10 @@ for(auto e : v) cout << e << ' ';
 ~~~cpp
 // no 2
 vector<int> v(4);
-for(auto e : v) cout << e << ' '; 
+for(auto e : v) cout << e << ' '; //0 0 0 0
 ~~~
 <details>
-<summary>Solution</summary>
+<summary>Solution</summary> 
 
 ~~~
 0 0 0 0 
@@ -34,10 +34,10 @@ for(auto e : v) cout << e << ' ';
 ~~~cpp
 // no 3
 vector<int> v{1, 2, 3};
-for (auto e: v) cout << e << ' ';
+for (auto e: v) cout << e << ' '; //1 2 3
 ~~~
 <details>
-<summary>Solution</summary>
+<summary>Solution</summary> 
 
 ~~~
 1 2 3 
@@ -47,7 +47,7 @@ for (auto e: v) cout << e << ' ';
 ~~~cpp
 // no 4
 vector<int> v{1., 2, 3};
-for (auto e: v) cout << e << ' ';
+for (auto e: v) cout << e << ' '; // error
 ~~~
 <details>
 <summary>Solution</summary>
@@ -63,7 +63,7 @@ vector<int> v{1., 2, 3};
 ~~~cpp
 // no 5
 vector<double> v{1., 2, 3};
-for (auto e: v) cout << e << ' ';
+for (auto e: v) cout << e << ' ';//1 2 3
 ~~~
 <details>
 <summary>Solution</summary>
@@ -76,7 +76,7 @@ for (auto e: v) cout << e << ' ';
 ~~~cpp
 // no 6
 vector<int> v(3) = {1, 2, 3};
-for (auto e: v) cout << e << ' ';
+for (auto e: v) cout << e << ' ';//error
 ~~~
 <details>
 <summary>Solution</summary>
@@ -93,7 +93,7 @@ vector<int> v(3) = {1, 2, 3};
 ~~~cpp
 // no 7
 vector v{1., 2., 3.};
-for (auto e: v) cout << e << ' ';
+for (auto e: v) cout << e << ' ';//1 2 3
 ~~~
 <details>
 <summary>Solution</summary> 
@@ -109,7 +109,7 @@ v est de type `vector<double>`
 ~~~cpp
 // no 8
 vector v{1., 2, 3};
-for (auto e: v) cout << e << ' ';
+for (auto e: v) cout << e << ' ';//error
 ~~~
 <details>
 <summary>Solution</summary> 
@@ -126,7 +126,7 @@ vector v{1., 2, 3};
 ~~~cpp
 // no 9
 vector v(3,2.f);
-for (auto e: v) cout << e << ' ';
+for (auto e: v) cout << e << ' ';//2 2 2
 ~~~
 <details>
 <summary>Solution</summary> 
@@ -142,7 +142,7 @@ v est de type `vector<float>`
 ~~~cpp
 // no 10
 vector v(4);
-for (auto e: v) cout << e << ' ';
+for (auto e: v) cout << e << ' ';//error
 ~~~
 <details>
 <summary>Solution</summary> 

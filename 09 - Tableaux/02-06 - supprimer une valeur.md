@@ -6,6 +6,42 @@ Sans faire usage de `vector::erase`, écrire une fonction C++ qui supprime tous 
 Avec la fonction `to_string` de l'exercice 02-03, le programme ci-dessous
 
 ~~~cpp
+string to_string(const vector<int>& v){
+   string str("[");
+   for (size_t i = 0; i < v.size(); ++i){
+      str += v[i];
+
+      if (i != v.size() - 1){
+         str += ", ";
+      }
+   }
+
+   return str += "]";
+}
+
+vector<int>& supprimer_une_valeur(vector<int>& v, size_t index){
+   if (index > v.size()-1)
+      return v;
+
+   for (size_t i = index; i < v.size() - 1; ++i){
+      v[i] = v[i + 1];
+   }
+
+   v.resize(v.size()-1);
+
+   return v;
+}
+
+vector<int>& supprimer_valeur(vector<int>& v, int value){
+   for (size_t i = 0; i < v.size(); ++i){
+      if (v[i] == value){
+         supprimer_une_valeur(v, i);
+      }
+   }
+
+   return v;
+}
+
 int main() {
    for (vector<int> v: {vector<int>{},
                         {2},

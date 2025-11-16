@@ -26,6 +26,21 @@ Personne& ref_personne = carnet.at(0);
 ostream& operator<< (ostream& os, const Date& date) {
    return os << (int)date.jour << "." << (int)date.mois << "." << date.annee;
 }
+
+cout << ref_personne.date;
+
+ptr_personne = &carnet[0];
+
+cout << ptr_personne->date;
+
+ref_personne.date.annee = 1976;
+ptr_personne->date.annee = 1976;
+
+cout << (&ref_personne + size_of(Personne)*1)->prenom[0] << (&ref_personne + size_of(Personne)*1)->nom[0];
+
+ptr_personne = &carnet[1];
+
+cout << ptr_personne->prenom[0] << ptr_personne->nom[0];
 ~~~
 
 Ecrire les instructions demandées
