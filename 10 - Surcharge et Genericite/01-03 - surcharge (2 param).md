@@ -32,7 +32,7 @@ const double& rdC = d;
 
 ~~~cpp
 // no 1
-fct(i, c);	
+fct(i, c);	 1 2 4
 ~~~
 
 <details>
@@ -56,7 +56,7 @@ fct(i, c);
 
 ~~~cpp
 // no 2
-fct(2.0, 1);
+fct(2.0, 1); //1 2 4
 ~~~
 
 <details>
@@ -80,7 +80,7 @@ fct(2.0, 1);
 
 ~~~cpp
 // no 3
-fct(i, f);
+fct(i, f); //1 2 4
 ~~~
 
 <details>
@@ -105,7 +105,7 @@ fct(i, f);
 
 ~~~cpp
 // no 4
-fct(ri, f);
+fct(ri, f);//1 2 4
 ~~~
 
 <details>
@@ -130,7 +130,7 @@ fct(ri, f);
 
 ~~~cpp
 // no 5
-fct(f, 1);
+fct(f, 1);//1 2 4
 ~~~
 
 <details>
@@ -155,7 +155,7 @@ fct(f, 1);
 
 ~~~cpp
 // no 6
-fct(i, d);
+fct(i, d);//1 2 4
 ~~~
 
 <details>
@@ -173,7 +173,7 @@ fct(i, d);
 
 ~~~cpp
 // no 7
-fct(f, i);
+fct(f, i);//1234
 ~~~
 
 <details>
@@ -190,7 +190,7 @@ fct(f, i);
 
 ~~~cpp
 // no 8
-fct(2.0, i);
+fct(2.0, i);//124
 ~~~
 
 <details>
@@ -207,7 +207,7 @@ fct(2.0, i);
 
 ~~~cpp
 // no 9
-fct(2, c);
+fct(2, c);//124
 ~~~
 
 <details>
@@ -224,7 +224,7 @@ fct(2, c);
 
 ~~~cpp
 // no 10
-fct(c, 2);
+fct(c, 2);//124
 ~~~
 
 <details>
@@ -241,7 +241,7 @@ fct(c, 2);
 
 ~~~cpp
 // no 11
-fct(rdC, i);
+fct(rdC, i);//124
 ~~~
 
 <details>
@@ -258,7 +258,7 @@ fct(rdC, i);
 
 ~~~cpp
 // no 12
-fct(f, rdC);
+fct(f, rdC);//124
 ~~~
 
 <details>
@@ -275,7 +275,7 @@ fct(f, rdC);
 
 ~~~cpp
 // no 13
-fct('a', rdC);
+fct('a', rdC);//124
 ~~~
 
 <details>
@@ -292,7 +292,7 @@ fct('a', rdC);
 
 ~~~cpp
 // no 14
-fct(2.0, 'a');
+fct(2.0, 'a');//124
 ~~~
 
 <details>
@@ -309,7 +309,7 @@ fct(2.0, 'a');
 
 ~~~cpp
 // no 15
-fct('a', 2L);	
+fct('a', 2L);	//124
 ~~~
 
 <details>
@@ -326,7 +326,7 @@ fct('a', 2L);
 
 ~~~cpp
 // no 16
-fct('a', 2.0L);	
+fct('a', 2.0L);	//124
 ~~~
 
 <details>

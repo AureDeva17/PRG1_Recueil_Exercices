@@ -16,7 +16,7 @@ float       f(float&)      { cout << "Fonction no 6"; return 0.; }
 
 ~~~cpp
 // no 1
-f('a');
+f('a');// 1 3
 ~~~
 
 <details>
@@ -33,7 +33,7 @@ NB : la no 2 n'est pas possible (`int&` sur une constante `'a'`)
 
 ~~~cpp
 // no 2
-f(42);
+f(42); //3
 ~~~
 
 <details>
@@ -48,7 +48,7 @@ f(42);
 ~~~cpp
 // no 3
 int i = 42;
-f(++i);	
+f(++i);	//2
 ~~~
 
 <details>
@@ -65,7 +65,7 @@ Les opérateurs suffixés, typiquement `++i` et `--i` retournent une référence
 ~~~cpp
 // no 4
 int j = 42;
-f(j--);	
+f(j--);	//3
 ~~~
 
 <details>
@@ -81,7 +81,7 @@ Les opérateurs postfixés, typiquement `i++` et `i--` retournent une copie de l
 
 ~~~cpp
 // no 5
-f(2ull);
+f(2ull); //1345
 ~~~
 
 <details>
@@ -104,7 +104,7 @@ f(2ull);
 // no 6
 long   a;
 double b;
-f(a < b);
+f(a < b);//3
 ~~~
 
 <details>
@@ -123,7 +123,7 @@ Ensuite la comparaison retoure un `bool`.<br>En l'absence de correspondance exac
 ~~~cpp
 // no 7
 float r = 2.f;
-f(r *= 2.l);
+f(r *= 2.l);//6
 ~~~
 
 <details>
@@ -139,7 +139,7 @@ L'opérateur `*=` prend uniquement un float en paramètre. Le `long double` `2.l
 
 ~~~cpp
 // no 8
-f(f(2u));
+f(f(2u));//5
 ~~~
 
 <details>
@@ -156,7 +156,7 @@ L'appel de f(`double`) correspond à la Fonction no 5
 
 ~~~cpp
 // no 9
-f('2') ? f(2.0) : f(-2.0); 
+f('2') ? f(2.0) : f(-2.0); //13 5
 ~~~
 
 <details>
