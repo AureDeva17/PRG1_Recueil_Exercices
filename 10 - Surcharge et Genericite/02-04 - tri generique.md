@@ -20,6 +20,43 @@ Les tableaux seront affichés avant et après le tri par le programme principal.
 
 [6.1, 2.2, 8.3, 7.4, 1.5, 3.6]
 [1.5, 2.2, 3.6, 6.1, 7.4, 8.3]
+
+~~~
+~~~cpp
+#include <span>
+
+using namespace std;
+
+template <typename T>
+size_t min_idx(span<T> sp){
+   if (sp.size() < 2){
+      return sp[0];
+   }
+
+   size_t min_idx = 0;
+
+   for (size_t i = 0; i < sp.size(); ++i){
+      if (sp[i] < sp[min_idx]){
+         min_idx = i;
+      }
+   }
+
+   return min_idx;
+}
+
+template <typename T>
+void swap(T& a, T& b){
+   T tmp = b;
+   b = a;
+   a = tmp;
+}
+
+template <typename T>
+void sort(span<T> sp){
+   for (size_t i = 0; i < sp.size(); ++i){
+      swap(sp[i], sp[min_idx(sp.first(i))]);
+   }
+}
 ~~~
 
 <details>

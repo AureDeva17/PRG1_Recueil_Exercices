@@ -7,6 +7,11 @@ Reprise de l'exercice [04-01 - minimum](../04%20-%20Fonctions/04-01%20-%20minimu
 Les instructions suivantes doivent être possibles:
 
 ~~~cpp
+template <typename T>
+T& min(T& a, T& b, T& c){
+   return a > b ? (b > c ? c : b) : (a > c ? c : a);
+}
+
 int    a = 5;
 int    b = 2;
 int    c = 9;

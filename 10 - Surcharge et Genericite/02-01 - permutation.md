@@ -4,6 +4,16 @@ Reprise de l'exercice [02b-02 - permutation](../04%20-%20Fonctions/02b-02%20-%20
 
 Ecrire un programme C++ qui met à disposition une fonction sans valeur de retour et prenant 3 paramètres de type **quelconque** permettant d'effectuer une permutation circulaire droite de ces 3 valeurs.
 
+~~~cpp
+template <typename T>
+void permu_circ(T& a, T& b, T& c){
+   T tmp = c;
+   c = b;
+   b = a;
+   a = tmp;
+}
+~~~
+
 <details>
 <summary>Solution</summary>
 

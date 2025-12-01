@@ -3,7 +3,7 @@
 
 ~~~cpp
 // no 1
-template
+template //<typename T>
 T somme(T a, T b) {
     return (a + b);
 }
