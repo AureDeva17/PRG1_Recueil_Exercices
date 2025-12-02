@@ -13,6 +13,33 @@ Le code ci-dessous doit s'exécuter correctement et afficher le résultat ci-apr
 
 using namespace std;
 
+class Point{
+
+private:
+   double x, y;
+
+public:
+    Point() : Point(0.,0.) {}
+    Point(double x, double y) : x(x), y(y) {}
+
+    double getX() const return x;
+    double getY() const return y;
+    double setX(double x) const this->x = x;
+    double setY(double y) const this->y = y;
+
+    void afficher() const;
+    void deplacer();
+}
+
+void Point::afficher() const{
+   cout << p.x << " -- " << p.y << endl;
+}
+
+void Point::deplacer(double x, double y){
+   this->x += x;
+   this->y += y;
+}
+
 int main() {
    Point p1(1.2, 2.4);
    cout << "p1"; p1.afficher();

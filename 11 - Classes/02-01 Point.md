@@ -11,6 +11,30 @@ Complétez le code suivant afin qu'il s'exécute correctement et affiche le rés
 
 using namespace std;
 
+class Point{
+
+private:
+   double x, y;
+
+public:
+    double getX() const return x;
+    double getY() const return y;
+    double setX(double x) const this->x = x;
+    double setY(double y) const this->y = y;
+
+    void afficher() const;
+    void deplacer();
+}
+
+void Point::afficher() const{
+   cout << p.x << " -- " << p.y << endl;
+}
+
+void Point::deplacer(double x, double y){
+   this->x += x;
+   this->y += y;
+}
+
 int main() {
     Point centre;
     centre.setX(0);
