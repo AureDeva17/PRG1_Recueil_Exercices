@@ -14,6 +14,41 @@ La classe doit mettre à disposition :
 Le programme suivant permet de vérifier le bon fonctionnement de la classe Robot
 
 ~~~cpp
+enum class Dir{
+    right,
+    left
+}
+
+class Robot{
+private:
+    int x;
+    pair<Dir,int> last_move;
+
+public:
+    Robot(int position = 0) : x(position){}
+
+    int get_x() const {return x;}
+    int getPosition() const {return get_x();}
+    void deplace(Dir direction, int distance = 1);
+    void faireDemiTour();
+}
+
+void Robot::deplace(Dir direction, int distance){
+    if (distance <= 0){
+        last_move = {direction, 0};
+        return;
+    }
+
+    last_move = {direction, distance};
+    x += distance * (direction == Dir::right ? 1 : -1);
+
+    return;
+}
+
+void Robot::faireDemiTour(){
+    deplace((last_move.first == Dir::right ? Dir::left : Dir:: right), last_move.second);
+}
+
 int main() {
     Robot r1, r2(10);
     cout << "position courante de r2: " << r2.getPosition() << endl;

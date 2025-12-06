@@ -6,6 +6,72 @@ Reprenez la classe Point de l'exercice [03-01](03-01%20Point%20avec%20constructe
 
 using namespace std;
 
+class Point{
+
+private:
+   double x, y;
+
+public:
+   friend Point& operator+= (const Point& p);
+   friend Point& operator*= (double d);
+   friend bool operator== (const Point& p1, const Point& p2) const;
+   friend ostream& operator<< (const ostream& os, const Point& p1) const;
+
+    Point() : Point(0.,0.) {}
+    Point(double x, double y) : x(x), y(y) {}
+    Point(const Point& p) : x(p.x), y(p.y) {};
+
+    double getX() const return x;
+    double getY() const return y;
+    double setX(double x) this->x = x;
+    double setY(double y) this->y = y;
+
+    void afficher() const;
+    void deplacer(double x, double y);
+}
+
+Point& operator+= (const Point& p){
+   this->x += p.x;
+   this->y += p.y;
+
+   return *this;
+}
+
+Point& operator*= (double d){
+   this->x *= d;
+   this->y *= d;
+
+   return *this;
+}
+
+Point operator+ (const Point& p1, const Point& p2) const{
+   return Point(p1) += p2;
+}
+Point operator* (const Point& p1, const Point& p2) const{
+   return Point(p1.x * p2.x, p1.y * p2.y);
+}
+Point operator* (double d, const Point& p1) const{
+   return Point(p1) * d;
+}
+Point operator* (Point& p1, double d) const{
+   return d * p1;
+}
+bool operator== (const Point& p) const{
+   return this->x == p.x && this->y == p.y;
+}
+ostream& operator<< (const ostream& os, const Point& p1) const{
+   return os << "(" << p1.x << "," << p1.y << ")";
+}
+
+void Point::afficher() const{
+   cout << p.x << " -- " << p.y << endl;
+}
+
+void Point::deplacer(double x, double y){
+   this->x += x;
+   this->y += y;
+}
+
 int main() {
 
    Point p1(1.2, 2.4);

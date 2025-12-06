@@ -18,6 +18,45 @@ n = 12
 ~~~
 
 ~~~cpp
+class MonEntier{
+private:
+   int entier;
+
+public:
+   MonEntier(int ent = 0) : entier(ent) {} 
+   MonEntier(const MonEntier& ent) : entier(ent.entier) {} 
+
+   MonEntier& operator+=(const MonEntier& ent);
+   MonEntier& operator++();
+   MonEntier operator++(int);
+
+   friend bool operator==(const MonEntier& ent1, const MonEntier& ent2);
+   friend ostream& operator<<(ostream& os, const MonEntier& ent);
+}
+
+MonEntier& MonEntier::operator+=(const MonEntier& ent){
+   return entier += ent.entier;
+}
+MonEntier& MonEntier::operator++(){
+   ++entier;
+   return *this;
+}
+MonEntier MonEntier::operator++(int){
+   MonEntier temp(*this);
+   ++entier;
+   return temp;
+}
+
+bool operator==(const MonEntier& ent1, const MonEntier& ent2){
+   return ent1.entier == ent2.entier;
+}
+MonEntier operator+(MonEntier ent1, const MonEntier& ent2){
+   return ent1 += ent2;
+}
+ostream& operator<<(ostream& os, const MonEntier& ent){
+   return os << ent.entier;
+}
+
 int main() {
    MonEntier m0, m1(1), m2 = 5;
    const MonEntier m3{7};
