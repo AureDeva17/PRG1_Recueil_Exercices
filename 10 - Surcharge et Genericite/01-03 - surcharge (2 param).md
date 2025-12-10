@@ -286,7 +286,7 @@ fct('a', rdC);//124
 	- $P_{1} = \left\\{1, 2\right\\}$ par promotion numérique 
 	- $P_{2} = \left\\{2\right\\}$ par type exact 
 3. $P_{1} \cap P_{2} = \left\\{2\right\\}$
-4. **Fonction no 2**
+4. **Fonction no 2**<>
 
 </details>
 
