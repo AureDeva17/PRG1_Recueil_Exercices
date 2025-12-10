@@ -6,6 +6,7 @@ Ne pas utiliser l'opérateur `<=>`
 ~~~cpp
 #include <iostream>
 #include <cstdlib>
+#include <cstdint>
 #include <array>
 #include <string>
 #include <iomanip>
@@ -17,6 +18,103 @@ using namespace std;
 // - déclaration
 // - définitions
 //------------------------------------------------------------
+
+
+class Jour{
+    public:
+    using JourType = uint8_t;
+    static JourType nb_jour;
+    enum Jour : JourType {
+        lundi = 0,
+        mardi,
+        mecredi,
+        jeudi,
+        vendredi,
+        samedi,
+        dimanche
+    }
+
+    Jour() : {}
+    Jour(JourType jour) : jour_semaine(jour) {}
+    Jour(int jour) : jour_semaine(jour%nb_jour) {}
+    Jour(const Jour& jour) : jour_semaine(jour.jour_semaine) {}
+
+    Jour& operator+=(const Jour& jour);
+    Jour& operator-=(const Jour& jour);
+    Jour& operator+=(int jour);
+    Jour& operator-=(int jour);
+    Jour& operator=(const Jour& jour);
+    Jour& operator++();
+    Jour operator++(int);
+    Jour& operator--();
+    Jour operator--(int);
+    auto operator<=>(const Jour& jour) const;
+    string operator string() const;
+    friend ostream& operator<<(ostream& os, const Jour& jour);
+private:
+    uint8_t jour_semaine;
+}
+
+Jour& Jour::operator+=(const Jour& jour){
+    return *this += jour.jour_semaine;
+}
+Jour& Jour::operator-=(const Jour& jour){
+    return *this -= jour.jour_semaine;
+}
+Jour& Jour::operator+=(int jour){
+    this->jour_semaine = (this->jour_semaine + jour) % nb_jour;
+
+    return *this;
+}
+Jour& Jour::operator-=(int jour){ return *this += -jour; }
+Jour& Jour::operator=(const Jour& jour) { 
+    this->jour_semaine = jour.jour_semaine;
+
+    return *this;
+}
+Jour& Jour::operator++(){
+    return *this += 1;
+}
+Jour Jour::operator++(int){
+    Jour jour(*this);
+    *this += 1;
+
+    return jour;
+}
+Jour& Jour::operator--(){
+    return *this -= 1;
+}
+Jour Jour::operator--(int){
+    Jour jour(*this);
+    *this -= 1;
+
+    return jour;
+}
+auto Jour::operator<=>(const Jour& jour) const{
+    if (this->jour_semaine == jour.jour_semaine){
+        return 0;
+    }
+    else if (this->jour_semaine < jour.jour_semaine){
+        return -1;
+    }
+    else{
+        return 1;
+    }
+}
+string Jour::operator string() const{
+    switch(jour_semaine){
+        case lundi: return "Lundi";
+        case mardi: return "Mardi";
+        case mecredi: return "Mecredi";
+        case jeudi: return "Jeudi";
+        case vendredi: return "Vendredi";
+        case samedi: return "Samedi";
+        case dimanche: return "Dimanche";
+    }
+}
+ostream& operator<<(ostream& os, const Jour& jour){
+    return  os << (string)jour;
+}
 
 //------------------------------------------------------------
 int main() {

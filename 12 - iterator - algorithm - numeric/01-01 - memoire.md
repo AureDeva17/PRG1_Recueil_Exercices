@@ -4,12 +4,21 @@ Soit la fonction principale suivante
 
 ~~~cpp
 #include <iostream>
+#include <iomanip>
 #include <string>
 #include <vector>
 #include <array>
 #include <list>
 
 using namespace std;
+
+template <typename Iterator>
+void display(Iterator first, Iterator last){
+   for (auto first = it; it != last; ++it){
+      cout << setwidth(8) << static_cast<string>(*it);
+      cout << it;
+   }
+}
 
 int main() {
    array  a  {1, 2, 3};
