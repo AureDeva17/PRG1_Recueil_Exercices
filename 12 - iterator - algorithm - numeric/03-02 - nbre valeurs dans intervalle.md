@@ -10,6 +10,19 @@ intervalle : [3, 6]
 résultat   : 4
 ~~~
 
+~~~cpp
+#include <algorithm>
+#include <span>
+#include <array>
+
+template <typename T, typename Iterator>
+unsigned count_within(T min, T max , span<T> s){
+   auto min_it = find_first(s.begin(), s.end(), min);
+   auto max_it = find_first(s.rbegin(), s.rend(), max);
+   return distance(min_it, max_it);
+}
+~~~
+
 <details>
 <summary>Solution 1 - foncteur</summary>
 

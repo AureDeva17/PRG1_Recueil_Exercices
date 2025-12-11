@@ -10,6 +10,34 @@ Les deux tableaux ci-dessous ont les même éléments
 ~~~cpp
 array  a {10, 9, 8, 7, 6, 5, 4, 3, 2, 1};
 vector v {1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 1, 2};
+
+#include <iostream>
+#include <algorithm>
+#include <vector>
+#include <span>
+
+using namespace std;
+
+template <typename T, typename Iterator>
+bool meme_elements(span<T> s1, span<T> s2){
+   auto first1 = s1.begin();
+   auto last1 = s1.end();
+   auto first2 = s2.begin();
+   auto last2 = s2.end();
+
+   for (auto it = first1; it != last1;++it){
+      if (!count(first2, last2, *it))
+         return false;
+   }
+
+   for (auto it = first2; it != last2; ++it){
+      if (!count(first1, last1, *it))
+         return false;
+   }
+
+   return true;
+}
+
 ~~~
 
 <details>

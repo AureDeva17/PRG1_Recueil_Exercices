@@ -18,9 +18,11 @@ resultat : [11, 12, 13, 21, 22, 23, 24, 25]
 using namespace std;
 
 template <typename T, typename Iterator>
-T concat_tab(Iterator first1, Iterator last1, Iterator first2, Iterator last2){
+vector<T> concat_tab(Iterator first1, Iterator last1, Iterator first2, Iterator last2){
    vector<T> v(first1, last1);
    v.insert(v.end(), first2, last2);
+
+   return v;
 }
 ~~~
 

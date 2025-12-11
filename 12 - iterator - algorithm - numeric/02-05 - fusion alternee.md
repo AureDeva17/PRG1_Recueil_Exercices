@@ -10,6 +10,26 @@ array    : [21, 22, 23, 24, 25]
 resultat : [11, 21, 12, 22, 13, 23, 24, 25]
 ~~~
 
+~~~cpp
+#include <vector>
+
+template <typename T, typename Iterator>
+vector<T> merge(Iterator first1, Iterator last1, Iterator first2, Iterator last2){
+   vector<T> v{};
+   v.reserve(distance(first1, last1) + distance(first2, last2));
+
+   while (first1 != last1 || first2 != last2){
+      if (first1 != last1){
+         v.push_back(first1++);
+      }
+
+      if (first2 != last2){
+         v.push_back(first2++);
+      }
+   }
+}
+~~~
+
 <details>
 <summary>Solution 1</summary>
 

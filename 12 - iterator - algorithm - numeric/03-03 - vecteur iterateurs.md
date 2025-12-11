@@ -10,9 +10,19 @@ Ecrire une fonction `vect_iter_val` qui reçoit un `vector<T>` **constant** et u
 
 Dans l'exemple ci-dessous, la valeur `2` était recherchée.
 
-~~~cpp
+~~~
 vecteur d'entiers     : [1, 2, 3, 2, 4, 2, 2, 6, 2]
 vecteur d'iterateurs  : [2, 2, 2, 2, 2]
+~~~
+
+~~~cpp
+template<typename T>
+vector<vector<T>::iterator> vect_iter_val(vector<T> v, T val){
+   vector<vector<T>::iterator> v_it{};
+   v_it.reserve(countif(v.begin(),v.end(), [&val](T value) {return val == value; }));
+   for_each(v.begin(), v.end(), [&val, &v_it](T value) {if (val == value) v_it.push_back(value); });
+   return v_it;
+}
 ~~~
 
 <details>
