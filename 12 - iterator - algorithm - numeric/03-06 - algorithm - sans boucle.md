@@ -42,6 +42,94 @@ Développer une librairie générique mettant à disposition à minima les fonct
 <summary> Ce programme <code>main.cpp</code> produit le résultat ci-après </summary>
 
 ~~~cpp
+#ifndef MATRIX_H
+#define MATRIX_H
+
+#include <vector>
+#include <iostream>
+
+template <typename T>
+using Line = vector<T>;
+
+template <typename T>
+using Matrix = vector<Line<T>>;
+
+template <typename T>
+ostream& operator<<(ostream& os, const vector<T>& v){
+   for_each(v.begin(), v.end(), [&os](const T& element) {os << element;})
+
+   return os;
+}
+
+template <typename T>
+ostream& operator<<(ostream& os, const Matrix<T>& m){
+   for_each(v.begin(), v.end(), [&os](const Line<T>& l) {os << l;})
+
+   return os;
+}
+
+template <typename T>
+size_t lineSizeMax(const Matrix<T>& m){
+   if(m.empty()){
+      return 0;
+   }
+   return max_element(m.begin(), m.end(), [](const Line<T>& l1, const Line<T>& l2) {return l1.size() > l2.size();});
+}
+
+template <typename T>
+size_t lineSizeMin(const Matrix<T>& m){
+   if(m.empty()){
+      return 0;
+   }
+   return min_element(m.begin(), m.end(), [](const Line<T>& l1, const Line<T>& l2) {return l1.size() < l2.size();});
+}
+
+template <typename T>
+bool isRegular(const Matrix<T>& m){
+   if(m.empty()){
+      return true;
+   }
+
+   return (lineSizeMax(m) == lineSizeMin(m));
+}
+
+template <typename T>
+bool isSquare(const Matrix<T>& m){
+   if(m.empty()){
+      return false;
+   }
+
+   return (isRegular(m) && m.size() == m[0].size())
+}
+
+template <typename T>
+T sumLine(const Line<T>& l){
+   T sum = 0;
+
+   for_each(l.begin(), l.end(), [&sum](const T& element) {sum += element;});
+
+   return sum;
+}
+
+template <typename T>
+T sumColumn(const Matrix<T>& m, size_t index){
+   T sum = 0;
+
+   for_each(m.begin(), m.end(), [&sum, &index](const Line<T>& l) {
+      size_t i = 0;
+      for_each(l.begin(), l.end(), [&sum, &index, &i](const T& element) {if (i++ == index) sum += element;});
+   });
+
+   return sum;
+}
+
+
+
+#endif
+~~~
+
+
+~~~cpp
 #include <cstdlib>
 #include <iostream>
 #include "matrix.h"
