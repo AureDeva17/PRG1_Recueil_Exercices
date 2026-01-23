@@ -24,6 +24,24 @@ void listerPoints(const vector<Point<T>>& v) {
       cout << endl;
    }
 }
+
+// appel
+listerPoints(dessin);		// le vecteur tout entier
 ~~~
+
+Avec des itérateurs
+~~~cpp
+template <typename Const_Iterateur>
+void listerPoints(Const_Iterateur first, Const_Iterateur last) {
+   for (Const_Iterateur iter = first; iter != last; ++iter) {
+      iter->afficher();  // ou (*iter).afficher();
+      cout << endl;
+   }
+}
+
+// appel
+listerPoints(dessin.begin(), dessin.end());   // des itérateurs sur le vecteur
+~~~
+
 
 </details>
