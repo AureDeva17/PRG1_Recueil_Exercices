@@ -15,6 +15,18 @@ public:
    ~C() { cout << "D" << i << " " << flush; }
 };
 
+C* f(){
+   return new C();
+}
+
+C* f(int j){
+   return new C(j);
+}
+
+void g(C* c){
+   delete c;
+}
+
 int main() {
    auto p1 = f();
    auto p2 = f(2);

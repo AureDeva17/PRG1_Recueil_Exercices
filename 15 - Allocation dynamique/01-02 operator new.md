@@ -14,6 +14,22 @@ public:
    C(int i) : i(i) { cout << "C" << i << " " << flush; } ~C() { cout << "D" << i << " " << flush; }
 };
 
+void* f(){
+   return ::operator new(sizeof(C));
+}
+
+C* f(void* p){
+   return ::operator new(p) C;
+}
+
+C* f(void* p, int i){
+   return ::operator new(p) C(i);
+}
+
+void g(C* p){
+   p->~C();
+}
+
 int main() {
    void *p1 = f(), *p2 = f();
    f(p1);

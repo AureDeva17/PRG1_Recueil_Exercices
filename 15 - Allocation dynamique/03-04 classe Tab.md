@@ -10,6 +10,75 @@ Implémenter la classe `Tab` qui contient les propriétés privées suivantes
 | `_size`   | La taille de la zone mémoire réservée dynamiquement     |
 
 ~~~cpp
+template <typename T>
+class Tab;
+
+template<typename T>
+ostream& operator<<(ostream& os, const Tab<T>& t){
+   os << "[";
+
+   for (size_t i = 0; i < t.size(); ++i){
+      os << t[i] << ", ";
+   }
+
+   return os << "]";
+}
+
+template <typename T>
+class Tab{
+public:
+   Tab(size_t n) : _size(n), _data(new T[n]){}
+   Tab(const Tab& t) : Tab(t.size()){
+      *this = t;
+   }
+
+   size_t size() const {return _size;}
+   T& operator[](size_t index){
+      return _data[index];
+   }
+   const T& operator[](size_t index) const{
+      return _data[index];
+   }
+   T& at(size_t index){
+      if (index >= _size){
+         throw std::out_of_range("Accessing out of range index");
+      }
+
+      return (*this)[index];
+   }
+   const T& at(size_t index) const{
+      if (index >= _size){
+         throw std::out_of_range("Accessing out of range index");
+      }
+
+      return (*this)[index];
+   }
+
+   Tab& operator=(const Tab& t){
+      if (_size != t._size){
+         delete _data;
+         _size = t._size;
+         _data = new T[_size];
+      }
+
+      for (size_t i = 0; i < _size; ++i){
+         (*this)[i] = t[i];
+      }
+
+      return *this;
+   }
+
+   friend ostream& operator<<<>(ostream& os, const Tab& t);
+
+   ~Tab(){
+      delete _data;
+   }
+
+private:
+   T* _data;
+   size_t _size;
+};
+
 int main() {
 
    const size_t n = 3;
