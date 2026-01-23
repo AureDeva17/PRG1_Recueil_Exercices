@@ -2,9 +2,9 @@
 
 Que va afficher le programme ci-dessous, lorsque l'utilisateur saisit :
 
-1. la valeur 1 ?
-2. la valeur 0 ?
-3. la valeur 2 ?
+1. la valeur 1 ? Deb catch 1 suite deb catch 2 fin appel pause
+2. la valeur 0 ? Deb  fin suite deb catch 2 fin appel pause
+3. la valeur 2 ? Dev appel pause
    
 ~~~cpp
 #include <cstdlib>

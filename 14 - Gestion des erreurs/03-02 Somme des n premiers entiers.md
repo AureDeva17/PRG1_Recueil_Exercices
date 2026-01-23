@@ -18,7 +18,13 @@ _NB_ L'exercice doit être résolu en utilisant exclusivement une(des) exception
 using namespace std;
 
 
-int sommeNPremiersEntiers(int n);
+int sommeNPremiersEntiers(int n){
+   if (n < 0){
+      throw std::logic_error("Value must be greater or equal to 0.");
+   }else if(){
+
+   }
+}
 void test(int n);
 
 int main() {

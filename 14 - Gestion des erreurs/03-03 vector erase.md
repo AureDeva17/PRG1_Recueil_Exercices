@@ -3,7 +3,11 @@
 Écrire une fonction C++ pour supprimer un élément d'une position donnée dans un tableau std::vector<int>. La fonction doit lever une(des) exception(s) en cas de problème(s) empêchant la suppression.
 
 ~~~cpp
-void removeFromVector(std::vector<int>& vec, size_t pos);
+void removeFromVector(std::vector<int>& vec, size_t pos){
+    if (pos >= vec.size()){
+        throw std::out_of_range("pos is out of range");
+    }
+}
 ~~~
 
 _NB_ L'exercice doit être résolu en utilisant exclusivement une(des) exception(s) prédéfinie(s).
