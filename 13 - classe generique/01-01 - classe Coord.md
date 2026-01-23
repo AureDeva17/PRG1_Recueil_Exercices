@@ -3,6 +3,49 @@
 Ecrire la classe `Coord` qui permet d'obtenir le résultat indiqué pour les instructions suivantes.
 
 ~~~cpp
+
+template <typename T>
+class Coord{
+private:
+   T x;
+   T y;
+public:
+   Coord(const T& x, const T& y) : x(x), y(y){}
+   Coord() : Coord(T(),T()){}
+   T getX() const;
+   T getY() const;
+   void afficher() const;
+   void setCoord(const T& x, const T& y);
+   void deplacer(const T& x, const T& y);
+};
+
+template <typename T>
+T Coord<T>::getX() const{
+   return x;
+}
+
+template <typename T>
+T Coord<T>::getY() const{
+   return y;
+}
+
+template <typename T>
+void Coord<T>::afficher() const{
+   cout << "("<< x << ", " << y <<")";
+}
+
+template <typename T>
+void Coord<T>::setCoord(const T& x, const T& y){
+   this->x = x;
+   this->y = y;
+}
+
+template <typename T>
+void Coord<T>::deplacer(const T& x, const T& y){
+   this->x += x;
+   this->y += y;
+}
+
 cout << "origine  : ";
 const Coord<int> origin;
 origin.afficher();

@@ -3,6 +3,92 @@
 Sur la base de la classe générique `Coord` de l'exercice [01-01 - classe Coord](01-01%20-%20classe%20Coord.md) et **sans faire d'héritage**, écrire la classe générique `Point` qui permet d'obtenir le résultat indiqué pour les instructions suivantes.
 
 ~~~cpp
+template <typename T>
+class Coord{
+private:
+   T x;
+   T y;
+public:
+   Coord(const T& x, const T& y) : x(x), y(y){}
+   Coord() : Coord(T(),T()){}
+   T getX() const;
+   T getY() const;
+   void afficher() const;
+   void setCoord(const T& x, const T& y);
+   void deplacer(const T& x, const T& y);
+};
+
+template <typename T>
+T Coord<T>::getX() const{
+   return x;
+}
+
+template <typename T>
+T Coord<T>::getY() const{
+   return y;
+}
+
+template <typename T>
+void Coord<T>::afficher() const{
+   cout << "("<< x << ", " << y <<")";
+}
+
+template <typename T>
+void Coord<T>::setCoord(const T& x, const T& y){
+   this->x = x;
+   this->y = y;
+}
+
+template <typename T>
+void Coord<T>::deplacer(const T& x, const T& y){
+   this->x += x;
+   this->y += y;
+}
+
+template<typename T>
+class Point{
+public:
+   Point(const string& name, const Coord<T>& coord = Coord<T>()) : name(name), coord(coord) {}
+   Point(const string& name, const T& x, const T& y) : name(name), coord(Coord<T>(x,y)) {}
+   Point() : Point(string(), Coord<T>()) {} 
+   void afficher() const;
+   void deplacer(T x, T y);
+   void setCoord(const Coord<T>& coord);
+   void setNom(const string& name);
+   const string& getNom() const {return name;}
+   const Coord<T>& getCoord() const;
+
+private:
+   string name;
+   Coord<T> coord;
+};
+
+template<typename T>
+void Point<T>::afficher() const{
+   cout << name;
+   coord.afficher();
+}
+
+template<typename T>
+void Point<T>::deplacer(T x, T y){
+   coord.deplacer(x,y);
+}
+
+template<typename T>
+void Point<T>::setCoord(const Coord<T>& coord){
+   this->coord.setCoord(coord.getX(), coord.getY());
+}
+
+template<typename T>
+void Point<T>::setNom(const string& name){
+   this->name = name;
+}
+
+template<typename T>
+const Coord<T>& Point<T>::getCoord() const{
+   return coord;
+}
+
 const Point<int> origin;
 
 cout << "p1       : ";

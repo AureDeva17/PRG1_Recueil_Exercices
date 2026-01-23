@@ -6,6 +6,15 @@ Reprendre l'exercice précédant [01-04 - classe Point - lister points](01-04%20
 Sans écrire une fonction ou une méthode complémentaire, écrire le code permettant de déplacer ce dessin de `dx`, `dy`.<br>
 Donner un exemple d'appel.
 
+~~~cpp
+int dx = 1;
+int dy = 2;
+
+for_each(dessin.begin(), dessin.end(), [dx, dy](Point<int>& p) {
+   p.deplacer(dx,dy);
+});
+~~~
+
 <details>
 <summary>déplacer</summary>
 
