@@ -22,6 +22,44 @@ struct Routeur {
     int intensiteSignal; // Intensité du signal du routeur
 };
 
+using Reseau = std::vector<std::vector<Routeur>>;
+
+const size_t square_size = 2;
+
+size_t getSquare(size_t i){
+    return i/square_size+i%square_size;
+}
+
+size_t getPos(size_t i){
+    return i*square_size;
+}
+
+Reseau consoliderSignal(const Reseau& r){
+
+    if (r.empty()) return Reseau();
+
+    Reseau n(getSquare(r.size()), vector<Routeur>(getSquare(r[0].size()), Routeur()));
+
+    for (size_t y = 0; y < n.size(); ++y){
+        for (size_t x = 0; x < n[x].size(); ++x){
+
+            int sum = 0;
+            int num = 0;
+
+            for (size_t y2 = getPos(y); y2 < r.size() && y2 < getPos(y+1); ++y2){
+                for (size_t x2 = getPos(x); x2 < r[x2].size() && x2 < getPos(x+1); ++x2){
+                    sum += r[y2][x2].intensiteSignal;
+                    ++num;
+                }
+            }
+
+            n[y][x].intensiteSignal = sum/num;
+        }
+    }
+
+    return n;
+}
+
 #include "reponse.cpp"      // votre réponse
 
 int main() {

@@ -13,6 +13,48 @@ de type `File_not_found`, type que vous déclarez vous-même.
 Exemple d'utilisation : le code suivant 
 
 ~~~cpp
+#ifndef DISPLAY_CSV_H
+#define DISPLAY_CSV_H
+
+#include <string_view>
+
+class File_not_found{};
+
+void display_csv(std::string_view path, char separator, std::size_t width);
+
+#endif //DISPLAY_CSV_H
+~~~
+
+~~~cpp
+#include "display_csv.h"
+#include <fstream>
+#include <sstream>
+#include <iostream>
+#include <iomanip>
+
+using namespace std;
+
+void display_csv(string_view path, char separator, size_t width){
+   ifstream s(path);
+
+   if (!s) throw File_not_found();
+
+   string str;
+   while(s){
+      getline(s, str);
+
+      stringstream ss(str);
+
+      while(getline(ss, str, separator)){;
+         cout << setw(width) << right << setfill(' ') << str;
+      }
+
+      cout << endl;
+   }
+}
+~~~
+
+~~~cpp
 #include "display_csv.h"
 #include <iostream>
 

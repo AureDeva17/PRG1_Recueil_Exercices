@@ -7,9 +7,32 @@ concaténation.
 Soient les déclarations ci-dessous
 
 ~~~cpp
+
+#include <vector>
+
+using namespace std;
+
 template <typename T> using Iterateur = typename vector<T>::const_iterator;
 template <typename T> using Plage     = pair<Iterateur<T>, Iterateur<T>>;
 template <typename T> using vPlages   = vector<Plage<T>>;
+
+template <typename It>
+size_t total_size(It begin, It end){
+   size_t sum = 0;
+
+   for_each(begin, end, [&sum](const auto& p){sum+=distance(p.first, p.second);});
+
+   return sum;
+}
+
+template <typename It, typename It2>
+It2 concat(It begin, It end, It2 out){
+   for_each(begin, end, [&out](const auto& p){
+      out = copy(p.first, p.second, out.begin());
+   });
+
+   return out;
+}
 
 const vector<int> v1 {11, 12, 13, 14, 15, 16};
 const vector<int> v2 {21, 22, 23, 24};

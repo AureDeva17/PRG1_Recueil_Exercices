@@ -20,6 +20,65 @@ Seule la méthode `subImage` doit être définie séparément.<br>
 Les autres peuvent être définie en ligne. 
 
 ~~~cpp
+#ifndef IMAGE_H
+#define IMAGE_H
+
+#include <cstdint>
+#include <stdexcept>
+#include <vector>
+
+struct Color{
+   uint8_t R;
+   uint8_t G;
+   uint8_t B;
+};
+
+struct Coord{
+   static const Coord origin = Coord{0,0}; 
+
+   unsigned int x;
+   unsigned int y;
+};
+
+class Image{
+public:
+   Image(unsigned int h, unsigned int w, Color col) : colors(h*w, col){}
+   unsigned int getw() const {return w}
+   unsigned int geth() const {return h}
+
+   Color operator[](Coord p) const {return colors.at(p.x + w * p.y);}
+   Color& operator[](Coord p) {return colors.at(p.x + w * p.y);}
+
+   Image subImage(const Coord& p, unsigned int h, unsigned int w) const;
+
+private:
+   unsigned int h;
+   unsigned int w;
+   std::vector<Color> colors;
+}
+#endif
+~~~
+
+~~~cpp
+#include "Image.h"
+
+Image Image::subImage(const Coord& p, unsigned int h, unsigned int w) const{
+
+   if (p.x+w > this->w || p.y+h > this->h) throw out_of_range("Sub image is too big for image");
+
+   Image sub(h,w, Color{0,0,0});
+
+   for (unsigned int y = 0; y < h; ++y){
+      for (unsigned int x = 0; x < w; ++x){{
+         sub[{x,y}] = (*this)[{p.x+x,p.y+y}];
+      }
+   }
+
+   return sub;
+}
+~~~
+
+~~~cpp
 #include <iostream>
 #include <cassert>
 

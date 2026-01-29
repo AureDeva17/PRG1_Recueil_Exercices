@@ -43,6 +43,64 @@ Votre code doit pouvoir gérer les cas où les fichiers ne peuvent pas être ouv
 #include <cctype>
 #include <fstream>
 
+using namespace std;
+
+char shift(char c, int shift){
+  shift %= 'z' - 'a'; 
+
+  if (isalpha(c)){
+    c+=shift;
+    if (isupper(c)){
+      if (c < 'A'){
+        c = 'Z' - ('A' - c) + 1; 
+      }
+
+      if (c > 'Z'){
+        c = 'A' + (c - 'Z') - 1; 
+      }
+    }else{
+      if (c < 'a'){
+        c = 'z' - ('a' - c) + 1; 
+      }
+
+      if (c > 'z'){
+        c = 'a' + (c - 'z') - 1; 
+      }
+    }
+  }
+
+  return c;
+}
+
+void encodeFile(const string& inputFilename, const string& outputFilename, int shift){
+  ifstream is(inputFilename);
+
+  if (!is){
+    cerr << "Error opening input file.";
+    return;
+  } 
+
+  ofstream os(outputFilename);
+
+  if (!os) {
+    cerr << "Error opening output file.";
+    return;
+  }
+
+  while(is){
+    char c;
+    is.get(c);
+    os << shift(c, shift);
+  }
+
+  is.close();
+  os.close();
+}
+
+void decodeFile(const string& inputFilename, const string& outputFilename, int shift){
+  encodeFile(inputFilename, outputFilename, -shift);
+}
+
 #include "encodeFile.cpp"
 #include "decodeFile.cpp"
 
