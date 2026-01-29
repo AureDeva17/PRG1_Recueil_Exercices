@@ -12,6 +12,28 @@ respectés, et faux sinon. Il est recommandé d'utiliser `<algoritm>`.
 Le code suivant
 
 ~~~cpp
+#include <string>
+#include <string_view>
+#include <algorithm>
+#include <cctype>
+
+using namespace std;
+
+bool verifier(string a, string b){
+
+   if (a.size() != b.size()) return false;
+
+   transform(a.begin(), a.end(), a.begin(), tolower);
+   transform(b.begin(), b.end(), b.begin(), tolower);
+
+   for (char c : a){
+      if (count(a.begin(), a.end(), c) > 1) return false; 
+      if (string::npos == b.find(c)) return false;
+   }
+
+   return true;
+}
+
 void tester(string_view a, string_view b) {
    cout << '\"' << a << "\" "
         << (verifier(a, b) ? "" : "in") << "compatible avec "

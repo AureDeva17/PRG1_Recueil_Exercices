@@ -25,6 +25,41 @@ Définissez les différents types mentionnés ci-dessus et les fonctions
 `make_image` et `dilate`. Un exemple d'utilisation est disponible ci-dessous. 
 
 ~~~cpp
+#include <vector>
+#include <limits>
+
+using Pixel_value = unsigned short;
+using Image = vector<vector<Pixel_value>>;
+
+struct Pt{
+   int x;
+   int y;
+};
+
+using Kernel = vector<Pt>;
+
+Image make_image(size_t width, size_t height, Pixel_value val = Pixel_value()){
+   return Image(height, vector<Pixel_value>(width, val));
+}
+
+Image dialte(Image im, const Kernel& ker, Pixel_value default_val){
+   Image im2(im);
+   for(size_t y = 0; y < im.size(); ++y){
+      for(size_t x = 0; x < im[y].size(); ++x){
+         Pixel_value val = numeric_limits<Pixel_value>::lowest();
+
+         for(size_t y2 = y + ker[0].y; y2 < im2.size() && y2 <= ker[1].y; ++y2){
+            for(size_t x2 = x + ker[0].x; x2 < im2.size() && x2 <= ker[1].x; ++x2){
+               val = max(val, im[y2][x2]);
+            }  
+         }
+
+         im2[y][x] = val;
+      }
+   }
+}
+
+
 int main() {
    Pixel_value black = 0;
    Image image = make_image(1920,1080,black);

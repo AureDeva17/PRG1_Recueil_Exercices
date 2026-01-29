@@ -10,6 +10,35 @@ Si l'utilisateur ne spécifie pas de fonction de comparaison, on utilise l'opér
 Le code suivant 
 
 ~~~cpp
+#include <vector>
+#include <pair>
+#include <string>
+#include <algorithm>
+
+using namespace std;
+
+template <typename I, typename P>
+pair<I,I> plus_long_sequence_croissante(I begin, I end, P comp){
+   vector<pair<pair<I,I>,size_t>> v;
+   
+   for (I it = begin; it != end; ++it){
+      size_t num = 0;
+      I it2 = it;
+      do {
+         ++num;
+      }while(++it2 != end && (comp(*(it2-1), *(it2)) || *(it2-1) == *(it2)));
+      v.push_back({{it, it2},num});
+   }
+
+   sort(v.begin(), v.end(), [](const pair<pair<I,I>,size_t>& l, const pair<pair<I,I>,size_t>& r) {return l.second>r.second});
+   return v[0].first;
+}
+
+template <typename I>
+pair<I,I> plus_long_sequence_croissante(I begin, I end){
+   return plus_long_sequence_croissante(begin, end, less<typename I::value_type>{});
+}
+
 int main() {
    vector<int> v{6, 3, 4, 5, 4, 3, 1, 2, 2, 3, 4, 3, 7};
 

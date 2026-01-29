@@ -2,7 +2,7 @@
 
 Que va afficher le programme ci-dessous, lorsque l'utilisateur saisit :
 
-1. la valeur 1 ?
+1. la valeur 1 ? 
 2. la valeur 2 ?
 3. la valeur 3 ?
 4. la valeur 4 ?

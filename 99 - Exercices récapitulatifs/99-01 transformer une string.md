@@ -22,6 +22,38 @@ paramètres sont de même taille.
 Il faut que le code ci-dessous
 
 ~~~cpp
+#include <string>
+#include <cassert>
+#include <cctype>
+
+size_t transformer(string& s, const string& f, const string& r){
+   assert(r.size() == f.size());
+
+   size_t changes = 0;
+
+   for(size_t i = 0; i < s.size(); ++i){
+
+      size_t pos = f.find(tolower(s[i]),0);
+      if (pos == string::npos){
+         pos = f.find(toupper(s[i]),0);
+      }
+
+      if (pos != string::npos){
+
+         if (s[i] >= 'a' && s[i] <= 'z'){
+            s[i] = tolower(r[pos]);
+         }else if (s[i] >= 'A' && s[i] <= 'Z'){
+            s[i] = toupper(r[pos]);
+         }else{
+            s[i] = r[pos];
+         }
+         ++changes;
+      }
+   }
+
+   return changes;
+}
+
 int main() {
    string s = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus facilisis at dolor eget congue. Duis in lacus placerat ante consectetur tempor. Aliquam lorem nunc, laoreet quis feugiat accumsan, vulputate vitae justo.";
    cout << transformer(s,"abcdefgh.!,:","fghabcde!,:.") << endl;

@@ -4,36 +4,99 @@ Ecrire une class Vec3 qui 3 réels en double précision dans une `std::array` pr
 tout ce qui est nécessaire pour permettre que le code ci-dessous compile et affiche le résultant suivant
 
 ~~~cpp
+#include <array>
+#include <algorithm>
+
+class Vec3{
+    using VecT = double;
+
+public:
+    static Vec3 axis(size_t i){
+        Vec3 v;
+
+        v.a[i] = 1;
+
+        return v;
+    }
+
+    Vec3(VecT x, VecT y, VecT z) : a({x,y,z}){}
+    Vec3() : Vec3(VecT(),VecT(),VecT()) {}
+    template <typename It>
+    Vec3(It begin, It end) : Vec3() {copy(begin, end, this->a.begin());}
+    Vec3(const Vec3& v) : Vec3(v.a.begin(), v.a.end()) {}
+
+    Vec3::VecT& operator[](size_t idx) {return a[idx];}
+    Vec3::VecT operator[](size_t idx) const {return a[idx];}
+    Vec3& operator=(const Vec3& v);
+    Vec3& operator+=(const Vec3& v);
+    Vec3 operator+(const Vec3& v) const;
+
+    friend ostream& operator<<(ostream& os, const Vec3& v);
+
+private:
+    std::array<VecT, 3> a;
+};
+
+Vec3& Vec3::operator=(const Vec3& v){
+    copy(v.a.begin(), v.a.end(), this->a.begin());
+
+    return *this;
+}
+
+Vec3& Vec3::operator+=(const Vec3& v){
+    for(size_t i = 0; i < this->a.size(); ++i){
+        this->a[i] += v.a[i];
+    }
+
+    return *this;
+}
+
+Vec3 Vec3::operator+(const Vec3& v) const{
+    Vec3 v2(*this);
+
+    return v2 += v;
+ }
+
+ostream& operator<<(ostream& os, const Vec3& v){
+    os << "(";
+    for(size_t i = 0; i < v.a.size(); ++i){
+        if (i) os << ",";
+        os << v.a[i];
+    }
+
+    return os << ")";
+}
+
 int main() {
-   Vec3 v1{};
-   cout << "v1 = " << v1 << endl;
+    Vec3 v1{};
+    cout << "v1 = " << v1 << endl;
 
-   v1[2] = 2;
-   cout << "v1 = " << v1 << endl;
+    v1[2] = 2;
+    cout << "v1 = " << v1 << endl;
 
-   array a{1., 3., 2.};
-   const Vec3 v2(a.begin(),a.end());
-   cout << "v2 = " << v2 << endl;
+    array a{1., 3., 2.};
+    const Vec3 v2(a.begin(),a.end());
+    cout << "v2 = " << v2 << endl;
 
-   for (size_t i = 0; i < 3; ++i)
-      cout << "v2[" << i << "] = " << v2[i] << ((i < 2) ? ", " : "\n");
+    for (size_t i = 0; i < 3; ++i)
+        cout << "v2[" << i << "] = " << v2[i] << ((i < 2) ? ", " : "\n");
 
-   vector b{4., 2., 5.};
-   Vec3 v3(b.begin(), b.end());
-   cout << "v3 = " << v3 << endl;
+    vector b{4., 2., 5.};
+    Vec3 v3(b.begin(), b.end());
+    cout << "v3 = " << v3 << endl;
 
-   Vec3 v4 = v2 + v3;
-   cout << "v4 = " << v4 << endl;
+    Vec3 v4 = v2 + v3;
+    cout << "v4 = " << v4 << endl;
 
-   v4 += v2;
-   cout << "v4 = " << v4 << endl;
+    v4 += v2;
+    cout << "v4 = " << v4 << endl;
 
-   Vec3 x = Vec3::axis(0);
-   cout << "x = " << x << endl;
-   Vec3 y = Vec3::axis(1);
-   cout << "y = " << y << endl;
-   Vec3 z = Vec3::axis(2);
-   cout << "z = " << z << endl;
+    Vec3 x = Vec3::axis(0);
+    cout << "x = " << x << endl;
+    Vec3 y = Vec3::axis(1);
+    cout << "y = " << y << endl;
+    Vec3 z = Vec3::axis(2);
+    cout << "z = " << z << endl;
 }
 ~~~
 
